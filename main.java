@@ -47,8 +47,6 @@ public class main {
         else {
             System.out.println("Kies alstublief 'Optie 1' of 'Optie 2'");
         }
-
-
     }
 
 }
