@@ -1,31 +1,5 @@
 import java.util.ArrayList;
 
-class Optie{
-    private String naam;
-    private String omschrijving;
-    private Double prijs;
-    private Boolean isEssentieel;
-}
-
-class OverheidKlant extends Klant{
-
-}
-
-class BedrijfKlant extends Klant{
-    private int kvkNummer;
-}
-
-class Korting {
-    private Double percentage;
-    private String type;
-}
-class Klant{
-    private String naam;
-    private String adres;
-    private int kvkNummer;
-    private boolean isOverheid;
-}
-
 class Plezierjacht{
     ArrayList <Optie> opties = new ArrayList<Optie>();
     String naam;
@@ -34,6 +8,25 @@ class Plezierjacht{
     Double lengte;
     Double gewicht;
 
+}
+
+class Optie{
+    private String naam;
+    private String omschrijving;
+    private Double prijs;
+    private Boolean isEssentieel;
+}
+
+class Klant{
+    private String naam;
+    private String adres;
+    private int kvkNummer;
+    private boolean isOverheid;
+}
+
+class Korting {
+    private Double percentage;
+    private String type;
 }
 
 
