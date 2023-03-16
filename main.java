@@ -22,11 +22,11 @@ class Korting{
 
 class Plezierjacht{
     ArrayList <Optie> opties = new ArrayList<Optie>();
-    String naam;
-    String merk;
-    Double prijs;
-    Double lengte;
-    Double gewicht;
+    private String naam;
+    private String merk;
+    private Double prijs;
+    private Double lengte;
+    private Double gewicht;
 
 }
 
