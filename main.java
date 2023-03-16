@@ -1,12 +1,24 @@
 
 class Optie{
+    private String naam;
+    private Double prijs;
+    private Boolean isEssentieel;
+}
+
+class Klant{
+    private String naam;
+    private String adres;
+}
+
+class OverheidKlant extends Klant{
 
 }
-class Klant{
 
+class BedrijfKlant extends Klant{
+    private int kvkNummer;
 }
 class Korting{
-
+    private Double percentage;
 }
 
 public class main {
