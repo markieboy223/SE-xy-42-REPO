@@ -132,6 +132,7 @@ class Opties{
         Optioneel.add(personeel);
     }
     public void nieuweOptie(){
+        //Begin gemaakt aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
         Scanner scanner = new Scanner(System.in);
         System.out.println("U gaat nu een nieuwe optie toevoegen aan ShipFlex.");
         System.out.println("Geef de naam van de nieuwe optie:");
