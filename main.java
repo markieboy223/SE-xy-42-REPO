@@ -231,22 +231,26 @@ class Korting {
 public class main {
     public static String test = "boot";
     public static void main(String[] args) {
-        Opties opties = new Opties();
-        opties.aanmakenOpties();
-        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
-        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());        System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
+        System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
 
         //Boten menu
         System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
         //Boten aanmaken
         Plezierjacht APMarine = new Plezierjacht("AP Marine","Plezierjacht", "Marine", 25000.00, 15.2, 4000);
+        Plezierjacht Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
         Zeiljacht Zeilbootje = new Zeiljacht("AP SEA","Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
 
         //Boten printen
         APMarine.printBoot();
         Zeilbootje.printBoot();
+        Quinness.printBoot();
 
         //Boot kiezen met klant
+
+        Opties opties = new Opties();
+        opties.aanmakenOpties();
+        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
+        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());
 
     }
 }
