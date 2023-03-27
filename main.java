@@ -41,14 +41,27 @@ class Klant extends Korting{
         setAdres(adres);
         System.out.println("Heeft u een kvkNummer J of N:");
         String kvkNummerJN = scanner.next();
+        while (!kvkNummerJN.equals("J") && !kvkNummerJN.equals("N")){ //while loop om te checken of er J of N is ingevuld anders vraagt hij het nog een keer
+            System.out.println("Heeft u een kvkNummer J of N:");
+             kvkNummerJN = scanner.next();
+        }
         if (kvkNummerJN.equals("J")){ //Hier checkt de if of er J is ingevoerd en daar vraagt hij dan om het kvkNummer
-            System.out.println("Geef uw kvkNummer");
+            System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
             int kvkNummer = scanner.nextInt();
+            int aantalCijfers = 8;
+            while (String.valueOf(kvkNummer).length() != aantalCijfers) {// hier checkt de while loop of het kvkNummer 8 cijfers heeft of niet
+                System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
+                 kvkNummer = scanner.nextInt();
+            }
             setKvkNummer(kvkNummer);
         }
         else if (kvkNummerJN.equals("N")){// Als er N wordt ingevoerd en dan gaat hij door naar of het een overheid is
             System.out.println("Bent u van de overheid? J of N");
             String overheid = scanner.next();
+            while (!overheid.equals("J") && !overheid.equals("N")){ //while loop om te checken of er J of N is ingevuld anders vraagt hij het nog een keer
+                System.out.println("Bent u van de overheid? J of N");
+                overheid = scanner.next();
+            }
             if(overheid.equals("J")){ //Als overheid J is wordt hij true en wordt hij geset
                 boolean overheid2 = true;
                 setOverheid(overheid2);
