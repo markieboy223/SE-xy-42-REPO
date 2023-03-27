@@ -17,31 +17,16 @@ class Klant extends Korting{
     public Klant(String type, Double percentage) {
         super(type, percentage);
     }
-    public void type1(){ //Hier check ik of de klant particulier, bedrijf od overheid is
-        if (kvkNummer == 0 && isOverheid){
-            type = "particulier";
-            percentage = 0.0;
-        }
-        else if (!isOverheid) {
-            type = "overheid";
-            percentage = 15.0;
-        }
-        else if (kvkNummer != 0) {
-            type = "bedrijf";
-            percentage = 10.0;
-        }
-    }
-    public void klantNaam(){
+
+    public void klantNaam() {
         Scanner scanner = new Scanner(System.in);
         int keuze = -1;
-        while (keuze < 1 || keuze > 3){ // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+        while (keuze < 1 || keuze > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
             System.out.println("Maak een keuze: ");
             System.out.println("1. Particulier");
             System.out.println("2. Bedrijf");
             System.out.println("3. Overheid");
             System.out.println("Voer uw keuze in (1, 2 of 3):");
-
-
             if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
                 keuze = scanner.nextInt();
                 if (keuze < 1 || keuze > 3) { // als het geen 1,2 of 3 is print hij dit uit
@@ -51,7 +36,6 @@ class Klant extends Korting{
                 System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
                 scanner.next(); // verwijder de ongeldige invoer uit de scanner
             }
-
         }
         System.out.println("Geef uw naam:");
         String naam = scanner.next();
@@ -59,13 +43,9 @@ class Klant extends Korting{
         System.out.println("Geef uw adres:");
         String adres = scanner.next();
         setAdres(adres);
+        if (keuze == 1) {
 
-        if (keuze == 1){
-
-        }
-
-
-        else if (keuze == 2){ //
+        } else if (keuze == 2) { //
             System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
             int kvkNummer = scanner.nextInt();
             int aantalCijfers = 8;
@@ -74,13 +54,11 @@ class Klant extends Korting{
                 kvkNummer = scanner.nextInt();
             }
             setKvkNummer(kvkNummer);
-        }
-        else if (keuze == 3) {
-
+        } else if (keuze == 3) {
+            isOverheid = true;
         }
 
     }
-
     public void setNaam(String naam) {
         this.naam = naam;
     }
