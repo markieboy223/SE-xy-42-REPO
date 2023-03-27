@@ -33,45 +33,54 @@ class Klant extends Korting{
     }
     public void klantNaam(){
         Scanner scanner = new Scanner(System.in);
+        int keuze = -1;
+        while (keuze < 1 || keuze > 3){ // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+            System.out.println("Maak een keuze: ");
+            System.out.println("1. Particulier");
+            System.out.println("2. Bedrijf");
+            System.out.println("3. Overheid");
+            System.out.println("Voer uw keuze in (1, 2 of 3):");
+
+
+            if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+                keuze = scanner.nextInt();
+                if (keuze < 1 || keuze > 3) { // als het geen 1,2 of 3 is print hij dit uit
+                    System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                }
+            } else { // als het iets anders dan een int is print hij dit uit
+                System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
+                scanner.next(); // verwijder de ongeldige invoer uit de scanner
+            }
+
+        }
         System.out.println("Geef uw naam:");
         String naam = scanner.next();
         setNaam(naam);
         System.out.println("Geef uw adres:");
         String adres = scanner.next();
         setAdres(adres);
-        System.out.println("Heeft u een kvkNummer J of N:");
-        String kvkNummerJN = scanner.next();
-        while (!kvkNummerJN.equals("J") && !kvkNummerJN.equals("N")){ //while loop om te checken of er J of N is ingevuld anders vraagt hij het nog een keer
-            System.out.println("Heeft u een kvkNummer J of N:");
-             kvkNummerJN = scanner.next();
+
+        if (keuze == 1){
+
         }
-        if (kvkNummerJN.equals("J")){ //Hier checkt de if of er J is ingevoerd en daar vraagt hij dan om het kvkNummer
+
+
+        else if (keuze == 2){ //
             System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
             int kvkNummer = scanner.nextInt();
             int aantalCijfers = 8;
-            while (String.valueOf(kvkNummer).length() != aantalCijfers) {// hier checkt de while loop of het kvkNummer 8 cijfers heeft of niet
+            while (String.valueOf(kvkNummer).length() != aantalCijfers) { // hier checkt de while loop of het kvkNummer 8 cijfers heeft of niet
                 System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
-                 kvkNummer = scanner.nextInt();
+                kvkNummer = scanner.nextInt();
             }
             setKvkNummer(kvkNummer);
         }
-        else if (kvkNummerJN.equals("N")){// Als er N wordt ingevoerd en dan gaat hij door naar of het een overheid is
-            System.out.println("Bent u van de overheid? J of N");
-            String overheid = scanner.next();
-            while (!overheid.equals("J") && !overheid.equals("N")){ //while loop om te checken of er J of N is ingevuld anders vraagt hij het nog een keer
-                System.out.println("Bent u van de overheid? J of N");
-                overheid = scanner.next();
-            }
-            if(overheid.equals("J")){ //Als overheid J is wordt hij true en wordt hij geset
-                boolean overheid2 = true;
-                setOverheid(overheid2);
-            }
-            else if (overheid.equals("N")) { //Als overheid N is wordt hij false en word hij geset
-                boolean overheid2 = false;
-                setOverheid(overheid2);
-            }
+        else if (keuze == 3) {
+
         }
+
     }
+
     public void setNaam(String naam) {
         this.naam = naam;
     }
