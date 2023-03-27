@@ -1,14 +1,51 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Plezierjacht{
+ class Boot{
     ArrayList <Optie> opties = new ArrayList<Optie>();
     private String naam;
+    private String type;
     private String merk;
     private Double prijs;
     private Double lengte;
     private Double gewicht;
+
+    public Boot(String naam, String type, String merk, double prijs, double lengte, double gewicht) {
+        this.naam = naam;
+        this.type = type;
+        this.merk = merk;
+        this.prijs = prijs;
+        this.lengte = lengte;
+        this.gewicht = gewicht;
+    }
+    public void printBoot(){
+        System.out.println();
+        System.out.println("Naam: " + naam);
+        System.out.println("Type: " + type);
+        System.out.println("Merk: " + merk);
+        System.out.println("Prijs: " + prijs + " Euro");
+        System.out.println("Lengte: " + lengte + "M");
+        System.out.println("Gewicht: " + gewicht+ "KG");
+    }
 }
+class Plezierjacht extends Boot {
+    public Plezierjacht(String naam, String type, String merk, double prijs, double lengte, double gewicht){
+        super(naam, type, merk, prijs, lengte, gewicht);
+    }
+}
+class Zeiljacht extends Boot {
+    private String zeil;
+    public Zeiljacht(String naam, String type, String merk, double prijs, double lengte, double gewicht, String zeil){
+        super(naam, type, merk, prijs, lengte, gewicht);
+        this.zeil = zeil;
+    }
+    @Override
+    public void printBoot(){
+        super.printBoot();
+        System.out.print("Zeil: " + zeil);
+    }
+}
+
 class Opties{
     //Deze 2 lijsten bevatten alle beschikbare opties.
     protected ArrayList<Optie> Essentieel = new ArrayList<>();
@@ -133,6 +170,8 @@ class Opties{
     }
     public void nieuweOptie(){
         //Begin gemaakt aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
+
+        //Dit is een begin aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
         Scanner scanner = new Scanner(System.in);
         System.out.println("U gaat nu een nieuwe optie toevoegen aan ShipFlex.");
         System.out.println("Geef de naam van de nieuwe optie:");
@@ -145,8 +184,6 @@ class Opties{
         boolean isEssentieel = scanner.nextBoolean();
         System.out.println("Wilt u meerdere versies van de Optie toevoegen?");
     }
-
-
 }
 class Optie extends Opties{
 
@@ -165,19 +202,14 @@ class Optie extends Opties{
     public void voegToe(Keuze keuze){
         opties.add(keuze);
     }
-
 }
 class Keuze extends Optie{
-
     protected int optie;
     public Keuze(String naam, String omschrijving, Double prijs, Boolean isEssentieel, int optie) {
         super(naam, omschrijving, prijs, isEssentieel);
         this.optie = optie;
     }
-
 }
-
-
 class Klant{
     private String naam;
     private String adres;
@@ -194,6 +226,22 @@ class Korting {
 public class main {
 
     public static void main(String[] args) {
+
+        System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
+        //Boten menu
+        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
+        //Boten aanmaken
+        Plezierjacht APMarine = new Plezierjacht("AP Marine","Plezierjacht", "Marine", 25000.00, 15.2, 4000);
+        Plezierjacht Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
+        Zeiljacht Zeilbootje = new Zeiljacht("AP SEA","Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
+
+        //Boten printen
+        APMarine.printBoot();
+        Zeilbootje.printBoot();
+        Quinness.printBoot();
+
+        //Boot kiezen met klant
+
         Opties opties = new Opties();
         opties.aanmakenOpties();
         ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
@@ -201,6 +249,4 @@ public class main {
 
 
     }
-
 }
-
