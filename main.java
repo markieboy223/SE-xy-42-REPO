@@ -1,14 +1,51 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Plezierjacht{
+ class Boot{
     ArrayList <Optie> opties = new ArrayList<Optie>();
     private String naam;
+    private String type;
     private String merk;
-    private Double prijs;
-    private Double lengte;
-    private Double gewicht;
+    private double prijs;
+    private double lengte;
+    private double gewicht;
+
+    public Boot(String naam, String type, String merk, double prijs, double lengte, double gewicht) {
+        this.naam = naam;
+        this.type = type;
+        this.merk = merk;
+        this.prijs = prijs;
+        this.lengte = lengte;
+        this.gewicht = gewicht;
+    }
+    public void printBoot(){
+        System.out.println();
+        System.out.println("Naam: " + naam);
+        System.out.println("Type: " + type);
+        System.out.println("Merk: " + merk);
+        System.out.println("Prijs: " + prijs + " Euro");
+        System.out.println("Lengte: " + lengte + "M");
+        System.out.println("Gewicht: " + gewicht+ "KG");
+    }
 }
+class Plezierjacht extends Boot {
+    public Plezierjacht(String naam, String type, String merk, double prijs, double lengte, double gewicht){
+        super(naam, type, merk, prijs, lengte, gewicht);
+    }
+}
+class Zeiljacht extends Boot {
+    private String zeil;
+    public Zeiljacht(String naam, String type, String merk, double prijs, double lengte, double gewicht, String zeil){
+        super(naam, type, merk, prijs, lengte, gewicht);
+        this.zeil = zeil;
+    }
+    @Override
+    public void printBoot(){
+        super.printBoot();
+        System.out.print("Zeil: " + zeil);
+    }
+}
+
 class Opties{
     //Deze 2 lijsten bevatten alle beschikbare opties.
     protected ArrayList<Optie> Essentieel = new ArrayList<>();
@@ -132,7 +169,7 @@ class Opties{
         Optioneel.add(personeel);
     }
     public void nieuweOptie(){
-        //Begin gemaakt aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
+        //Dit is een begin aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
         Scanner scanner = new Scanner(System.in);
         System.out.println("U gaat nu een nieuwe optie toevoegen aan ShipFlex.");
         System.out.println("Geef de naam van de nieuwe optie:");
@@ -178,29 +215,131 @@ class Keuze extends Optie{
 }
 
 
-class Klant{
-    private String naam;
-    private String adres;
-    private int kvkNummer;
-    private boolean isOverheid;
-}
+class Klant extends Korting{
+    private String naam = "";
+    private String adres = "";
+    private int kvkNummer = 0;
+    private boolean isOverheid = false;
 
-class Korting {
-    private Double percentage;
-    private String type;
-}
+    public Klant(String type, Double percentage) {
+        super(type, percentage);
+    }
 
+    public void klantNaam() {
+        Scanner scanner = new Scanner(System.in);
+        int keuze = -1;
+        while (keuze < 1 || keuze > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+            System.out.println("Maak een keuze: ");
+            System.out.println("1. Particulier");
+            System.out.println("2. Bedrijf");
+            System.out.println("3. Overheid");
+            System.out.println("Voer uw keuze in (1, 2 of 3):");
+            if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+                keuze = scanner.nextInt();
+                if (keuze < 1 || keuze > 3) { // als het geen 1,2 of 3 is print hij dit uit
+                    System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                }
+            } else { // als het iets anders dan een int is print hij dit uit
+                System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
+                scanner.next(); // verwijder de ongeldige invoer uit de scanner
+            }
+        }
+        System.out.println("Geef uw naam:");
+        String naam = scanner.next();
+        setNaam(naam);
+        System.out.println("Geef uw adres:");
+        String adres = scanner.next();
+        setAdres(adres);
+        if (keuze == 1) {
 
-public class main {
+        } else if (keuze == 2) { //
+            System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
+            int kvkNummer = scanner.nextInt();
+            int aantalCijfers = 8;
+            while (String.valueOf(kvkNummer).length() != aantalCijfers) { // hier checkt de while loop of het kvkNummer 8 cijfers heeft of niet
+                System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
+                kvkNummer = scanner.nextInt();
+            }
+            setKvkNummer(kvkNummer);
+        } else if (keuze == 3) {
+            isOverheid = true;
+        }
 
-    public static void main(String[] args) {
-        Opties opties = new Opties();
-        opties.aanmakenOpties();
-        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
-        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());
-
-
+    }
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
+    public void setAdres(String adres) {
+        this.adres = adres;
+    }
+    public boolean isOverheid() {
+        return isOverheid;
+    }
+    public int getKvkNummer() {
+        return kvkNummer;
+    }
+    public String getAdres() {
+        return adres;
+    }
+    public String getNaam() {
+        return naam;
+    }
+    public void setOverheid(boolean overheid) {
+        this.isOverheid = overheid;
+    }
+    public void setKvkNummer(int kvkNummer) {
+        this.kvkNummer = kvkNummer;
     }
 
 }
 
+class Korting{
+    protected String type = "";
+    protected Double percentage = 0.0;
+
+    public Korting(String type, Double percentage) {
+        this.type = type;
+        this.percentage = percentage;
+    }
+
+    public Korting(String type) {
+        this.type = type;
+    }
+
+    public void setPercentage(Double percentage) {
+        this.percentage = percentage;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+}
+
+public class main {
+    public static void main(String[] args) {
+        System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
+
+        //Klant
+        Klant klant = new Klant("", 0.0);
+        klant.klantNaam();
+
+        //Boten menu
+        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
+        //Boten aanmaken
+        Plezierjacht APMarine = new Plezierjacht("AP Marine", "Plezierjacht", "Marine", 25000.00, 15.2, 4000);
+        Plezierjacht Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
+        Zeiljacht Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
+
+        //Boten printen
+        APMarine.printBoot();
+        Zeilbootje.printBoot();
+        Quinness.printBoot();
+
+        //Boot kiezen met klant
+
+        Opties opties = new Opties();
+        opties.aanmakenOpties();
+        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
+        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());
+    }
+}
