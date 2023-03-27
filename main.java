@@ -29,13 +29,13 @@ import java.util.Scanner;
     }
 }
 class Plezierjacht extends Boot {
-    public Plezierjacht(String naam,String type, String merk, double prijs, double lengte, double gewicht){
+    public Plezierjacht(String naam, String type, String merk, double prijs, double lengte, double gewicht){
         super(naam, type, merk, prijs, lengte, gewicht);
     }
 }
 class Zeiljacht extends Boot {
     private String zeil;
-    public Zeiljacht(String naam,String type, String merk, double prijs, double lengte, double gewicht, String zeil){
+    public Zeiljacht(String naam, String type, String merk, double prijs, double lengte, double gewicht, String zeil){
         super(naam, type, merk, prijs, lengte, gewicht);
         this.zeil = zeil;
     }
@@ -77,7 +77,7 @@ public class main {
 
 
         //Boten menu
-        System.out.println("Kies een van de boten om toe te voegen aan ");
+        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
         //Boten aanmaken
         Plezierjacht APMarine = new Plezierjacht("AP Marine","Plezierjacht", "Marine", 25000.00, 15.2, 4000);
         Zeiljacht Zeilbootje = new Zeiljacht("AP SEA","Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
@@ -86,7 +86,7 @@ public class main {
         APMarine.printBoot();
         Zeilbootje.printBoot();
 
-        //Boot kiezen
+        //Boot kiezen met klant
     }
 
 }
