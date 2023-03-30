@@ -1,6 +1,20 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+class Botenlist{
+    ArrayList<Boot> boten = new ArrayList<>();
+    public void printBotenLijst(){
+        for (Boot b : boten) {
+            System.out.println();
+            System.out.println("Naam: " + b.getNaam());
+            System.out.println("Type: " + b.getType());
+            System.out.println("Merk: " + b.getMerk());
+            System.out.println("Prijs: " + b.getPrijs() + " Euro");
+            System.out.println("Lengte: " + b.getLengte() + "M");
+            System.out.println("Gewicht: " + b.getGewicht() + "KG");
+        }
+    }
+}
  class Boot{
     ArrayList <Optie> opties = new ArrayList<Optie>();
     private String naam;
@@ -18,16 +32,64 @@ import java.util.Scanner;
         this.lengte = lengte;
         this.gewicht = gewicht;
     }
-    public void printBoot(){
-        System.out.println();
-        System.out.println("Naam: " + naam);
-        System.out.println("Type: " + type);
-        System.out.println("Merk: " + merk);
-        System.out.println("Prijs: " + prijs + " Euro");
-        System.out.println("Lengte: " + lengte + "M");
-        System.out.println("Gewicht: " + gewicht+ "KG");
-    }
-}
+
+     public String getNaam() {
+         return naam;
+     }
+
+     public void setNaam(String naam) {
+         this.naam = naam;
+     }
+
+     public String getType() {
+         return type;
+     }
+
+     public void setType(String type) {
+         this.type = type;
+     }
+
+     public String getMerk() {
+         return merk;
+     }
+
+     public void setMerk(String merk) {
+         this.merk = merk;
+     }
+
+     public double getPrijs() {
+         return prijs;
+     }
+
+     public void setPrijs(double prijs) {
+         this.prijs = prijs;
+     }
+
+     public double getLengte() {
+         return lengte;
+     }
+
+     public void setLengte(double lengte) {
+         this.lengte = lengte;
+     }
+
+     public double getGewicht() {
+         return gewicht;
+     }
+
+     public void setGewicht(double gewicht) {
+         this.gewicht = gewicht;
+     }
+     public void printBoot(){
+         System.out.println();
+         System.out.println("Naam: " + naam);
+         System.out.println("Type: " + type);
+         System.out.println("Merk: " + merk);
+         System.out.println("Prijs: " + prijs + " Euro");
+         System.out.println("Lengte: " + lengte + "M");
+         System.out.println("Gewicht: " + gewicht + "KG");
+     }
+ }
 class Plezierjacht extends Boot {
     public Plezierjacht(String naam, String type, String merk, double prijs, double lengte, double gewicht){
         super(naam, type, merk, prijs, lengte, gewicht);
@@ -320,26 +382,33 @@ public class main {
         System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
 
         //Klant
-        Klant klant = new Klant("", 0.0);
-        klant.klantNaam();
+//        Klant klant = new Klant("", 0.0);
+//        klant.klantNaam();
 
         //Boten menu
-        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
+//        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
         //Boten aanmaken
         Plezierjacht APMarine = new Plezierjacht("AP Marine", "Plezierjacht", "Marine", 25000.00, 15.2, 4000);
         Plezierjacht Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
         Zeiljacht Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
 
+        //BotenList
+        Botenlist botenlist = new Botenlist();
+        botenlist.boten.add(APMarine);
+        botenlist.boten.add(Quinness);
+        botenlist.boten.add(Zeilbootje);
+
+        botenlist.printBotenLijst();
         //Boten printen
-        APMarine.printBoot();
-        Zeilbootje.printBoot();
-        Quinness.printBoot();
+//        APMarine.printBoot();
+//        Zeilbootje.printBoot();
+//        Quinness.printBoot();
 
         //Boot kiezen met klant
 
-        Opties opties = new Opties();
-        opties.aanmakenOpties();
-        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
-        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());
+//        Opties opties = new Opties();
+//        opties.aanmakenOpties();
+//        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
+//        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());
     }
 }
