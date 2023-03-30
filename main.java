@@ -64,8 +64,18 @@ class Opties{
             System.out.println("Type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
 
             Scanner scanner = new Scanner(System.in);
-            int check = scanner.nextInt();
-            //Hier moet nog een veiligheidscheck worden toegevoegd voor verkeerde inputs.
+            int check = -1;
+            while (check < 1 || check > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+                if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+                    check = scanner.nextInt();
+                    if (check < 1 || check > 3) { // als het geen 1,2 of 3 is print hij dit uit
+                        System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                    }
+                } else { // als het iets anders dan een int is print hij dit uit
+                    System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
+                    scanner.next(); // verwijder de ongeldige invoer uit de scanner
+                }
+            }
             if (check == 1) {
                 gekozenEssentieel.add(optie.opties.get(0));
             }
@@ -93,7 +103,18 @@ class Opties{
             System.out.println("Type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
 
             Scanner scanner = new Scanner(System.in);
-            int check = scanner.nextInt();
+            int check = -1;
+            while (check < 0 || check > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+                if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+                    check = scanner.nextInt();
+                    if (check < 1 || check > 3) { // als het geen 1,2 of 3 is print hij dit uit
+                        System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                    }
+                } else { // als het iets anders dan een int is print hij dit uit
+                    System.out.println("Ongeldige invoer. Voer een geldig getal in (0, 1, 2 of 3).");
+                    scanner.next(); // verwijder de ongeldige invoer uit de scanner
+                }
+            }
             //Hier moet nog een veiligheidscheck worden toegevoegd voor verkeerde inputs.
             if (check == 0){
                 continue;
@@ -112,7 +133,121 @@ class Opties{
         return gekozenOptioneel;
     }
 
-    public void aanmakenOpties(){
+    public void aanmakenOptiesPlezierjacht1(){
+        //Hier worden de verschillende essentiële en optionele opties aangemaakt.
+        Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
+        Keuze stuur1 = new Keuze("Basis stuur", "Standaard stuur van aluminium", 150.0, false, 1);
+        Keuze stuur2 = new Keuze("Eikenhout stuur", "Stuur van eikenhout", 210.0, false, 2);
+        Keuze stuur3 = new Keuze("Eikenhout stuur met bladgoud", "Stuur van eikenhout versiert met bladgoud", 275.0, false, 3);
+        stuur.voegToe(stuur1);
+        stuur.voegToe(stuur2);
+        stuur.voegToe(stuur3);
+        Essentieel.add(stuur);
+
+        Optie motor = new Optie("Moter", "Standaard motor", 10000.0, true);
+        Keuze motor1 = new Keuze("Basis Motor", "Standaard motor 500PK.", 10000.0, false, 1);
+        Keuze motor2 = new Keuze("Motor 800PK", "Motor een vermogen van 800PK.", 15000.0, false, 2);
+        Keuze motor3 = new Keuze("Motor 800PK met supercharger", "800PK motor met een supercharger.", 18750.0, false, 3);
+        motor.voegToe(motor1);
+        motor.voegToe(motor2);
+        motor.voegToe(motor3);
+        Essentieel.add(motor);
+
+        Optie reddingsboot = new Optie("Reddingsboot", "Standaard reddingsboot", 2000.0, true);
+        Keuze redding1 = new Keuze("Basis reddingsboot", "Standaard reddingsboot met ruimte voor 5", 2000.0, false, 1);
+        Keuze redding2 = new Keuze("Grotere reddingsboot", "Grotere reddingsboot met ruimte voor 10", 4000.0, false, 2);
+        Keuze redding3 = new Keuze("Luxe reddingsboot", "Reddingsboot met ruimte voor 10, een minibar en audio installatie.", 10300.75, false, 3);
+        reddingsboot.voegToe(redding1);
+        reddingsboot.voegToe(redding2);
+        reddingsboot.voegToe(redding3);
+        Essentieel.add(reddingsboot);
+
+        Optie feestboot = new Optie("Party Boat", "Feestelijke toevoegingen", 5000.0, false);
+        Keuze feest1 = new Keuze("Basis uitbreiding", "Upgrade aan het audio-systeem en RGB lampen", 5000.0, false, 1);
+        Keuze feest2 = new Keuze("Medium uitbreiding", "Naast de toevoegingen van Optie 1 ook een uitgebreide bar en dansvloer", 10000.0, false, 2);
+        Keuze feest3 = new Keuze("VIP uitbreiding", "Naast de toevoegingen van Opties 1&2 ook een helicopter pad voor makkelijke transport", 25000.0, false, 3);
+        feestboot.voegToe(feest1);
+        feestboot.voegToe(feest2);
+        feestboot.voegToe(feest3);
+        Optioneel.add(feestboot);
+
+        Optie bekleding = new Optie("Bekleding", "Uitbreding op de bekleding", 5000.0, false);
+        Keuze bekleding1 = new Keuze("Hout interieur", "Het interieur wordt gestyled met hout", 5000.0, false, 1);
+        Keuze bekleding2 = new Keuze("Zelfontworpen buitenkant", "Door de koper ontworpen buitenkant", 10000.0, false, 2);
+        Keuze bekleding3 = new Keuze("Combi", "Een combinatie van Optie 1 en Optie 2", 15000.0, false, 3);
+        bekleding.voegToe(bekleding1);
+        bekleding.voegToe(bekleding2);
+        bekleding.voegToe(bekleding3);
+        Optioneel.add(bekleding);
+
+        Optie personeel = new Optie("Personeel", "Keuze uit eigen personeel", 5000.0, false);
+        Keuze pers1 = new Keuze("Basis personeel", "Een kapitein en 2 matrosen", 5000.0, false, 1);
+        Keuze pers2 = new Keuze("Keuken personeel", "Ook een chefkok met 2 hulpjes", 10000.0, false, 2);
+        Keuze pers3 = new Keuze("VIP personeel", "Masseuses en etc.", 25000.0, false, 3);
+        personeel.voegToe(pers1);
+        personeel.voegToe(pers2);
+        personeel.voegToe(pers3);
+        Optioneel.add(personeel);
+    }
+
+    public void aanmakenOptiesPlezierjacht2(){
+        //Hier worden de verschillende essentiële en optionele opties aangemaakt.
+        Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
+        Keuze stuur1 = new Keuze("Basis stuur", "Standaard stuur van aluminium", 150.0, false, 1);
+        Keuze stuur2 = new Keuze("Eikenhout stuur", "Stuur van eikenhout", 210.0, false, 2);
+        Keuze stuur3 = new Keuze("Eikenhout stuur met bladgoud", "Stuur van eikenhout versiert met bladgoud", 275.0, false, 3);
+        stuur.voegToe(stuur1);
+        stuur.voegToe(stuur2);
+        stuur.voegToe(stuur3);
+        Essentieel.add(stuur);
+
+        Optie motor = new Optie("Moter", "Standaard motor", 10000.0, true);
+        Keuze motor1 = new Keuze("Basis Motor", "Standaard motor 500PK.", 10000.0, false, 1);
+        Keuze motor2 = new Keuze("Motor 800PK", "Motor een vermogen van 800PK.", 15000.0, false, 2);
+        Keuze motor3 = new Keuze("Motor 800PK met supercharger", "800PK motor met een supercharger.", 18750.0, false, 3);
+        motor.voegToe(motor1);
+        motor.voegToe(motor2);
+        motor.voegToe(motor3);
+        Essentieel.add(motor);
+
+        Optie reddingsboot = new Optie("Reddingsboot", "Standaard reddingsboot", 2000.0, true);
+        Keuze redding1 = new Keuze("Basis reddingsboot", "Standaard reddingsboot met ruimte voor 5", 2000.0, false, 1);
+        Keuze redding2 = new Keuze("Grotere reddingsboot", "Grotere reddingsboot met ruimte voor 10", 4000.0, false, 2);
+        Keuze redding3 = new Keuze("Luxe reddingsboot", "Reddingsboot met ruimte voor 10, een minibar en audio installatie.", 10300.75, false, 3);
+        reddingsboot.voegToe(redding1);
+        reddingsboot.voegToe(redding2);
+        reddingsboot.voegToe(redding3);
+        Essentieel.add(reddingsboot);
+
+        Optie feestboot = new Optie("Party Boat", "Feestelijke toevoegingen", 5000.0, false);
+        Keuze feest1 = new Keuze("Basis uitbreiding", "Upgrade aan het audio-systeem en RGB lampen", 5000.0, false, 1);
+        Keuze feest2 = new Keuze("Medium uitbreiding", "Naast de toevoegingen van Optie 1 ook een uitgebreide bar en dansvloer", 10000.0, false, 2);
+        Keuze feest3 = new Keuze("VIP uitbreiding", "Naast de toevoegingen van Opties 1&2 ook een helicopter pad voor makkelijke transport", 25000.0, false, 3);
+        feestboot.voegToe(feest1);
+        feestboot.voegToe(feest2);
+        feestboot.voegToe(feest3);
+        Optioneel.add(feestboot);
+
+        Optie bekleding = new Optie("Bekleding", "Uitbreding op de bekleding", 5000.0, false);
+        Keuze bekleding1 = new Keuze("Hout interieur", "Het interieur wordt gestyled met hout", 5000.0, false, 1);
+        Keuze bekleding2 = new Keuze("Zelfontworpen buitenkant", "Door de koper ontworpen buitenkant", 10000.0, false, 2);
+        Keuze bekleding3 = new Keuze("Combi", "Een combinatie van Optie 1 en Optie 2", 15000.0, false, 3);
+        bekleding.voegToe(bekleding1);
+        bekleding.voegToe(bekleding2);
+        bekleding.voegToe(bekleding3);
+        Optioneel.add(bekleding);
+
+        Optie personeel = new Optie("Personeel", "Keuze uit eigen personeel", 5000.0, false);
+        Keuze pers1 = new Keuze("Basis personeel", "Een kapitein en 2 matrosen", 5000.0, false, 1);
+        Keuze pers2 = new Keuze("Keuken personeel", "Ook een chefkok met 2 hulpjes", 10000.0, false, 2);
+        Keuze pers3 = new Keuze("VIP personeel", "Masseuses en etc.", 25000.0, false, 3);
+        personeel.voegToe(pers1);
+        personeel.voegToe(pers2);
+        personeel.voegToe(pers3);
+        Optioneel.add(personeel);
+    }
+
+    public void aanmakenOptiesZeiljacht(){
         //Hier worden de verschillende essentiële en optionele opties aangemaakt.
         Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
         Keuze stuur1 = new Keuze("Basis stuur", "Standaard stuur van aluminium", 150.0, false, 1);
@@ -333,9 +468,42 @@ public class main {
 
         //Boot kiezen met klant
 
-        Opties opties = new Opties();
-        opties.aanmakenOpties();
-        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
-        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());
+        System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
+        Scanner scanner = new Scanner(System.in);
+        int keuze = -1;
+        while (keuze < 1 || keuze > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+            if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+                keuze = scanner.nextInt();
+                if (keuze < 1 || keuze > 3) { // als het geen 1,2 of 3 is print hij dit uit
+                    System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                }
+            } else { // als het iets anders dan een int is print hij dit uit
+                System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
+                scanner.next(); // verwijder de ongeldige invoer uit de scanner
+            }
+        }
+
+        Opties optie1 = new Opties();
+        if (keuze == 1) {
+            optie1.aanmakenOptiesPlezierjacht1();
+            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
+            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
+            APMarine.opties.addAll(gekozenEssentieel);
+            APMarine.opties.addAll(gekozenOptioneel);
+        }
+        if (keuze == 2) {
+            optie1.aanmakenOptiesPlezierjacht2();
+            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
+            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
+            APMarine.opties.addAll(gekozenEssentieel);
+            APMarine.opties.addAll(gekozenOptioneel);
+        }
+        if (keuze == 3) {
+            optie1.aanmakenOptiesZeiljacht();
+            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
+            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
+            APMarine.opties.addAll(gekozenEssentieel);
+            APMarine.opties.addAll(gekozenOptioneel);
+        }
     }
 }
