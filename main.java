@@ -20,9 +20,9 @@ class Botenlist{
     private String naam;
     private String type;
     private String merk;
-    private double prijs;
-    private double lengte;
-    private double gewicht;
+    private Double prijs;
+    private Double lengte;
+    private Double gewicht;
 
     public Boot(String naam, String type, String merk, double prijs, double lengte, double gewicht) {
         this.naam = naam;
@@ -231,6 +231,8 @@ class Opties{
         Optioneel.add(personeel);
     }
     public void nieuweOptie(){
+        //Begin gemaakt aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
+
         //Dit is een begin aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
         Scanner scanner = new Scanner(System.in);
         System.out.println("U gaat nu een nieuwe optie toevoegen aan ShipFlex.");
@@ -244,8 +246,6 @@ class Opties{
         boolean isEssentieel = scanner.nextBoolean();
         System.out.println("Wilt u meerdere versies van de Optie toevoegen?");
     }
-
-
 }
 class Optie extends Opties{
 
@@ -264,18 +264,14 @@ class Optie extends Opties{
     public void voegToe(Keuze keuze){
         opties.add(keuze);
     }
-
 }
 class Keuze extends Optie{
-
     protected int optie;
     public Keuze(String naam, String omschrijving, Double prijs, Boolean isEssentieel, int optie) {
         super(naam, omschrijving, prijs, isEssentieel);
         this.optie = optie;
     }
-
 }
-
 
 class Klant extends Korting{
     private String naam = "";
@@ -352,8 +348,7 @@ class Klant extends Korting{
     public void setKvkNummer(int kvkNummer) {
         this.kvkNummer = kvkNummer;
     }
-
-}
+ }
 
 class Korting{
     protected String type = "";
@@ -379,6 +374,7 @@ class Korting{
 
 public class main {
     public static void main(String[] args) {
+
         System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
 
         //Klant
