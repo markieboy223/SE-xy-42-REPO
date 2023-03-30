@@ -388,17 +388,24 @@ public class main {
         //Boten menu
 //        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
         //Boten aanmaken
-        Plezierjacht APMarine = new Plezierjacht("AP Marine", "Plezierjacht", "Marine", 25000.00, 15.2, 4000);
-        Plezierjacht Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
-        Zeiljacht Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
+        Boot boot = new Boot("boot", "boot", "boot", 25000.00, 15.2, 4000);
+        Boot APMarine = new Plezierjacht("AP Marine", "Plezierjacht", "Marine", 25000.00, 15.2, 4000);
+        Boot Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
+        Boot Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
+
+//        boot.printBoot();
+//        APMarine.printBoot();
+//        Quinness.printBoot();
+//        Zeilbootje.printBoot();
+
 
         //BotenList
         Botenlist botenlist = new Botenlist();
         botenlist.boten.add(APMarine);
         botenlist.boten.add(Quinness);
         botenlist.boten.add(Zeilbootje);
-
         botenlist.printBotenLijst();
+
         //Boten printen
 //        APMarine.printBoot();
 //        Zeilbootje.printBoot();
