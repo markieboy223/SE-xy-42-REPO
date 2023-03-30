@@ -1,9 +1,85 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+class Offerte{
+    public void setKlant(Klant klant) {
+        this.klant = klant;
+    }
+
+    public void setKorting(Korting korting) {
+        this.korting = korting;
+    }
+
+    public void setBoot(Boot boot) {
+        this.boot = boot;
+    }
+
+    private Klant klant;
+    private Korting korting;
+    protected Boot boot;
+    public void printOfferte(){
+        boolean milieukorting = false;
+        boolean bulkkorting = false;
+        System.out.println("Offerte voor: " + boot.getType() + ", " + boot.getNaam());
+        System.out.println("Naam klant: " + klant.getNaam());
+        System.out.println("Adres: " + klant.getAdres());
+        if (klant.getKvkNummer() != 0){
+            System.out.println("kvk nummer: " + klant.getKvkNummer());
+        }
+        if (klant.isOverheid()){
+            System.out.println("Overheids instanttie: ja");
+        }
+        System.out.println();
+        System.out.println("Basis prijs van " + boot.getNaam() + ": " + boot.getPrijs());
+        System.out.println("De gekozen essentiële opties:");
+        System.out.println("Optie 1: " + boot.opties.get(0).naam + ", €" + boot.opties.get(0).prijs);
+        System.out.println("Optie 2: " + boot.opties.get(1).naam + ", €" + boot.opties.get(1).prijs);
+        System.out.println("Optie 3: " + boot.opties.get(2).naam + ", €" + boot.opties.get(2).prijs);
+        System.out.println();
+        if (boot.opties.size() > 3){
+            System.out.println("De gekozen optionele opties:");
+            int grootte = boot.opties.size();
+            for (int i = 3; i < grootte; i++) {
+                System.out.println("Optie " + (i + 1) + ": " + boot.opties.get(i).naam + ", €" + boot.opties.get(i).prijs);
+            }
+        }
+        else{
+            System.out.println("Er zijn geen optionele opties toegevoegd.");
+        }
+        System.out.println();
+        System.out.println("De volgende kortingen zijn toegepast:");
+        if (korting.kortingenLijst.get(0).check){
+            System.out.println("10% milieukorting");
+            milieukorting = true;
+        }
+        if (korting.kortingenLijst.get(1).check){
+            System.out.println("€2000 bulkkorting");
+            bulkkorting = true;
+        }
+        System.out.println();
+        double totaal = boot.getPrijs();
+        for (Optie optie : boot.opties){
+            totaal = totaal + optie.prijs;
+        }
+        if ((!milieukorting && !bulkkorting)) {
+            System.out.println("De totaalprijs is: €" + totaal);
+        }
+        else{
+            System.out.println("De prijs voor het toepassen van de korting is: €" + totaal);
+            System.out.println();
+            if (milieukorting){
+                totaal = totaal * korting.kortingenLijst.get(0).getPercentage();
+            }
+            if (bulkkorting){
+                totaal = totaal - korting.kortingenLijst.get(1).getPercentage();
+            }
+            System.out.println("De totaalprijs na het toepassen van de korting is: €" + totaal);
+        }
+    }
+}
+
 class Botenlist {
     ArrayList<Boot> boten = new ArrayList<>();
-
     public void printBotenLijst() {
         for (Boot b : boten) {
             System.out.println();
@@ -15,7 +91,6 @@ class Botenlist {
             System.out.println("Gewicht: " + b.getGewicht() + "KG");
         }
     }
-
     public void berekening() {
         double totaleprijs =0;
         for (Boot b : boten) {
@@ -25,8 +100,15 @@ class Botenlist {
         System.out.printf("Dit is uw totale prijs: € %.2f", totaleprijs);
     }
 }
- class Boot{
+
+class Boot extends Offerte{
     ArrayList <Optie> opties = new ArrayList<Optie>();
+
+    public ArrayList<Optie> getOpties() {
+        return opties;
+    }
+
+
     private String naam;
     private String type;
     private String merk;
@@ -118,6 +200,8 @@ class Zeiljacht extends Boot {
     }
 }
 
+
+
 class Opties{
     //Deze 2 lijsten bevatten alle beschikbare opties.
     protected ArrayList<Optie> Essentieel = new ArrayList<>();
@@ -133,11 +217,23 @@ class Opties{
             System.out.println("Optie 1: " + optie.opties.get(0).omschrijving);
             System.out.println("Optie 2: " + optie.opties.get(1).omschrijving);
             System.out.println("Optie 3: " + optie.opties.get(2).omschrijving);
+            System.out.println();
+            System.out.println("Als u voor de volgende 3 opties de basis uitvoering kiest (optie 1) krijgt u 10% korting op de totaalprijs.");
             System.out.println("Type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
 
             Scanner scanner = new Scanner(System.in);
-            int check = scanner.nextInt();
-            //Hier moet nog een veiligheidscheck worden toegevoegd voor verkeerde inputs.
+            int check = -1;
+            while (check < 1 || check > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+                if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+                    check = scanner.nextInt();
+                    if (check < 1 || check > 3) { // als het geen 1,2 of 3 is print hij dit uit
+                        System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                    }
+                } else { // als het iets anders dan een int is print hij dit uit
+                    System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
+                    scanner.next(); // verwijder de ongeldige invoer uit de scanner
+                }
+            }
             if (check == 1) {
                 gekozenEssentieel.add(optie.opties.get(0));
             }
@@ -156,16 +252,29 @@ class Opties{
         //Dit wordt aangeroepen als de klant de optionele opties gaat kiezen, er wordt een ArrayList gereturned met de keuzes.
         ArrayList<Optie> gekozenOptioneel = new ArrayList<>();
         System.out.println("Het is voor de volgende " + Optioneel.size() + " opties mogelijk om het niet toe te voegen.");
+        System.out.println();
+        System.out.println("Als u alle 3 optionele opties toevoegd krijg u een vaste korting van €2000.");
 
         for(Optie optie : Optioneel) {
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
             System.out.println("Optie 1: " + optie.opties.get(0).omschrijving);
             System.out.println("Optie 2: " + optie.opties.get(1).omschrijving);
             System.out.println("Optie 3: " + optie.opties.get(2).omschrijving);
-            System.out.println("Type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
+            System.out.println("Type '0' als u niks wilt toevoegen, type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
 
             Scanner scanner = new Scanner(System.in);
-            int check = scanner.nextInt();
+            int check = -1;
+            while (check < 0 || check > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+                if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+                    check = scanner.nextInt();
+                    if (check < 1 || check > 3) { // als het geen 1,2 of 3 is print hij dit uit
+                        System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                    }
+                } else { // als het iets anders dan een int is print hij dit uit
+                    System.out.println("Ongeldige invoer. Voer een geldig getal in (0, 1, 2 of 3).");
+                    scanner.next(); // verwijder de ongeldige invoer uit de scanner
+                }
+            }
             //Hier moet nog een veiligheidscheck worden toegevoegd voor verkeerde inputs.
             if (check == 0){
                 continue;
@@ -184,7 +293,121 @@ class Opties{
         return gekozenOptioneel;
     }
 
-    public void aanmakenOpties(){
+    public void aanmakenOptiesPlezierjacht1(){
+        //Hier worden de verschillende essentiële en optionele opties aangemaakt.
+        Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
+        Keuze stuur1 = new Keuze("Basis stuur", "Standaard stuur van aluminium", 150.0, false, 1);
+        Keuze stuur2 = new Keuze("Eikenhout stuur", "Stuur van eikenhout", 210.0, false, 2);
+        Keuze stuur3 = new Keuze("Eikenhout stuur met bladgoud", "Stuur van eikenhout versiert met bladgoud", 275.0, false, 3);
+        stuur.voegToe(stuur1);
+        stuur.voegToe(stuur2);
+        stuur.voegToe(stuur3);
+        Essentieel.add(stuur);
+
+        Optie motor = new Optie("Moter", "Standaard motor", 10000.0, true);
+        Keuze motor1 = new Keuze("Basis Motor", "Standaard motor 500PK.", 10000.0, false, 1);
+        Keuze motor2 = new Keuze("Motor 800PK", "Motor een vermogen van 800PK.", 15000.0, false, 2);
+        Keuze motor3 = new Keuze("Motor 800PK met supercharger", "800PK motor met een supercharger.", 18750.0, false, 3);
+        motor.voegToe(motor1);
+        motor.voegToe(motor2);
+        motor.voegToe(motor3);
+        Essentieel.add(motor);
+
+        Optie reddingsboot = new Optie("Reddingsboot", "Standaard reddingsboot", 2000.0, true);
+        Keuze redding1 = new Keuze("Basis reddingsboot", "Standaard reddingsboot met ruimte voor 5", 2000.0, false, 1);
+        Keuze redding2 = new Keuze("Grotere reddingsboot", "Grotere reddingsboot met ruimte voor 10", 4000.0, false, 2);
+        Keuze redding3 = new Keuze("Luxe reddingsboot", "Reddingsboot met ruimte voor 10, een minibar en audio installatie.", 10300.75, false, 3);
+        reddingsboot.voegToe(redding1);
+        reddingsboot.voegToe(redding2);
+        reddingsboot.voegToe(redding3);
+        Essentieel.add(reddingsboot);
+
+        Optie feestboot = new Optie("Party Boat", "Feestelijke toevoegingen", 5000.0, false);
+        Keuze feest1 = new Keuze("Basis uitbreiding", "Upgrade aan het audio-systeem en RGB lampen", 5000.0, false, 1);
+        Keuze feest2 = new Keuze("Medium uitbreiding", "Naast de toevoegingen van Optie 1 ook een uitgebreide bar en dansvloer", 10000.0, false, 2);
+        Keuze feest3 = new Keuze("VIP uitbreiding", "Naast de toevoegingen van Opties 1&2 ook een helicopter pad voor makkelijke transport", 25000.0, false, 3);
+        feestboot.voegToe(feest1);
+        feestboot.voegToe(feest2);
+        feestboot.voegToe(feest3);
+        Optioneel.add(feestboot);
+
+        Optie bekleding = new Optie("Bekleding", "Uitbreding op de bekleding", 5000.0, false);
+        Keuze bekleding1 = new Keuze("Hout interieur", "Het interieur wordt gestyled met hout", 5000.0, false, 1);
+        Keuze bekleding2 = new Keuze("Zelfontworpen buitenkant", "Door de koper ontworpen buitenkant", 10000.0, false, 2);
+        Keuze bekleding3 = new Keuze("Combi", "Een combinatie van Optie 1 en Optie 2", 15000.0, false, 3);
+        bekleding.voegToe(bekleding1);
+        bekleding.voegToe(bekleding2);
+        bekleding.voegToe(bekleding3);
+        Optioneel.add(bekleding);
+
+        Optie personeel = new Optie("Personeel", "Keuze uit eigen personeel", 5000.0, false);
+        Keuze pers1 = new Keuze("Basis personeel", "Een kapitein en 2 matrosen", 5000.0, false, 1);
+        Keuze pers2 = new Keuze("Keuken personeel", "Ook een chefkok met 2 hulpjes", 10000.0, false, 2);
+        Keuze pers3 = new Keuze("VIP personeel", "Masseuses en etc.", 25000.0, false, 3);
+        personeel.voegToe(pers1);
+        personeel.voegToe(pers2);
+        personeel.voegToe(pers3);
+        Optioneel.add(personeel);
+    }
+
+    public void aanmakenOptiesPlezierjacht2(){
+        //Hier worden de verschillende essentiële en optionele opties aangemaakt.
+        Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
+        Keuze stuur1 = new Keuze("Basis stuur", "Standaard stuur van aluminium", 150.0, false, 1);
+        Keuze stuur2 = new Keuze("Eikenhout stuur", "Stuur van eikenhout", 210.0, false, 2);
+        Keuze stuur3 = new Keuze("Eikenhout stuur met bladgoud", "Stuur van eikenhout versiert met bladgoud", 275.0, false, 3);
+        stuur.voegToe(stuur1);
+        stuur.voegToe(stuur2);
+        stuur.voegToe(stuur3);
+        Essentieel.add(stuur);
+
+        Optie motor = new Optie("Moter", "Standaard motor", 10000.0, true);
+        Keuze motor1 = new Keuze("Basis Motor", "Standaard motor 500PK.", 10000.0, false, 1);
+        Keuze motor2 = new Keuze("Motor 800PK", "Motor een vermogen van 800PK.", 15000.0, false, 2);
+        Keuze motor3 = new Keuze("Motor 800PK met supercharger", "800PK motor met een supercharger.", 18750.0, false, 3);
+        motor.voegToe(motor1);
+        motor.voegToe(motor2);
+        motor.voegToe(motor3);
+        Essentieel.add(motor);
+
+        Optie reddingsboot = new Optie("Reddingsboot", "Standaard reddingsboot", 2000.0, true);
+        Keuze redding1 = new Keuze("Basis reddingsboot", "Standaard reddingsboot met ruimte voor 5", 2000.0, false, 1);
+        Keuze redding2 = new Keuze("Grotere reddingsboot", "Grotere reddingsboot met ruimte voor 10", 4000.0, false, 2);
+        Keuze redding3 = new Keuze("Luxe reddingsboot", "Reddingsboot met ruimte voor 10, een minibar en audio installatie.", 10300.75, false, 3);
+        reddingsboot.voegToe(redding1);
+        reddingsboot.voegToe(redding2);
+        reddingsboot.voegToe(redding3);
+        Essentieel.add(reddingsboot);
+
+        Optie feestboot = new Optie("Party Boat", "Feestelijke toevoegingen", 5000.0, false);
+        Keuze feest1 = new Keuze("Basis uitbreiding", "Upgrade aan het audio-systeem en RGB lampen", 5000.0, false, 1);
+        Keuze feest2 = new Keuze("Medium uitbreiding", "Naast de toevoegingen van Optie 1 ook een uitgebreide bar en dansvloer", 10000.0, false, 2);
+        Keuze feest3 = new Keuze("VIP uitbreiding", "Naast de toevoegingen van Opties 1&2 ook een helicopter pad voor makkelijke transport", 25000.0, false, 3);
+        feestboot.voegToe(feest1);
+        feestboot.voegToe(feest2);
+        feestboot.voegToe(feest3);
+        Optioneel.add(feestboot);
+
+        Optie bekleding = new Optie("Bekleding", "Uitbreding op de bekleding", 5000.0, false);
+        Keuze bekleding1 = new Keuze("Hout interieur", "Het interieur wordt gestyled met hout", 5000.0, false, 1);
+        Keuze bekleding2 = new Keuze("Zelfontworpen buitenkant", "Door de koper ontworpen buitenkant", 10000.0, false, 2);
+        Keuze bekleding3 = new Keuze("Combi", "Een combinatie van Optie 1 en Optie 2", 15000.0, false, 3);
+        bekleding.voegToe(bekleding1);
+        bekleding.voegToe(bekleding2);
+        bekleding.voegToe(bekleding3);
+        Optioneel.add(bekleding);
+
+        Optie personeel = new Optie("Personeel", "Keuze uit eigen personeel", 5000.0, false);
+        Keuze pers1 = new Keuze("Basis personeel", "Een kapitein en 2 matrosen", 5000.0, false, 1);
+        Keuze pers2 = new Keuze("Keuken personeel", "Ook een chefkok met 2 hulpjes", 10000.0, false, 2);
+        Keuze pers3 = new Keuze("VIP personeel", "Masseuses en etc.", 25000.0, false, 3);
+        personeel.voegToe(pers1);
+        personeel.voegToe(pers2);
+        personeel.voegToe(pers3);
+        Optioneel.add(personeel);
+    }
+
+    public void aanmakenOptiesZeiljacht(){
         //Hier worden de verschillende essentiële en optionele opties aangemaakt.
         Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
         Keuze stuur1 = new Keuze("Basis stuur", "Standaard stuur van aluminium", 150.0, false, 1);
@@ -283,15 +506,12 @@ class Keuze extends Optie{
     }
 }
 
-class Klant extends Korting{
+class Klant extends Offerte{
     private String naam = "";
     private String adres = "";
     private int kvkNummer = 0;
     private boolean isOverheid = false;
 
-    public Klant(String type, Double percentage) {
-        super(type, percentage);
-    }
 
     public void klantNaam() {
         Scanner scanner = new Scanner(System.in);
@@ -360,45 +580,62 @@ class Klant extends Korting{
     }
  }
 
-class Korting{
-    protected String type = "";
-    protected Double percentage = 0.0;
+ class Korting extends Offerte{
+    ArrayList<Kortinglijst> kortingenLijst = new ArrayList<>();
 
-    public Korting(String type, Double percentage) {
+    public void maakKorting(){
+        Kortinglijst milieukorting1 = new Kortinglijst("Milieukorting", 0.9);
+        Kortinglijst bulkkorting1 = new Kortinglijst("Bulkkorting", 2000.0);
+
+        kortingenLijst.add(milieukorting1);
+        kortingenLijst.add(bulkkorting1);
+    }
+
+    public void checkKorting(){
+        if (boot.opties.size() == 6){
+            kortingenLijst.get(1).check = true;
+        }
+        if (boot.opties.get(0).prijs + boot.opties.get(1).prijs + boot.opties.get(2).prijs == 12150){
+            kortingenLijst.get(0).check = true;
+        }
+    }
+ }
+class Kortinglijst extends Korting{
+    protected String type;
+    protected Double percentage;
+    protected boolean check = false;
+    public String getType() {
+        return type;
+    }
+    public Double getPercentage() {
+        return percentage;
+    }
+    public Kortinglijst(String type, Double percentage) {
         this.type = type;
         this.percentage = percentage;
-    }
-
-    public Korting(String type) {
-        this.type = type;
-    }
-
-    public void setPercentage(Double percentage) {
-        this.percentage = percentage;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }
 
 public class main {
     public static void main(String[] args) {
 
+        Offerte offerte = new Offerte();
+        Korting korting= new Korting();
+        korting.maakKorting();
+
         System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
 
         //Klant
-//        Klant klant = new Klant("", 0.0);
-//        klant.klantNaam();
+        Klant klant = new Klant();
+        klant.klantNaam();
 
         //Boten menu
-//        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
+        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
         //Boten aanmaken
         Plezierjacht APMarine = new Plezierjacht("AP Marine", "Plezierjacht", "Marine", 25000.00, 15.2, 4000);
         Plezierjacht Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
         Zeiljacht Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
 
-        //BotenList
         Botenlist botenlist = new Botenlist();
         botenlist.boten.add(APMarine);
         botenlist.boten.add(Quinness);
@@ -407,16 +644,52 @@ public class main {
         botenlist.printBotenLijst();
         botenlist.berekening();
 
-        //Boten printen
-//        APMarine.printBoot();
-//        Zeilbootje.printBoot();
-//        Quinness.printBoot();
 
         //Boot kiezen met klant
 
-//        Opties opties = new Opties();
-//        opties.aanmakenOpties();
-//        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
-//        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());
+        System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
+        Scanner scanner = new Scanner(System.in);
+        int keuze = -1;
+        while (keuze < 1 || keuze > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
+            if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+                keuze = scanner.nextInt();
+                if (keuze < 1 || keuze > 3) { // als het geen 1,2 of 3 is print hij dit uit
+                    System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                }
+            } else { // als het iets anders dan een int is print hij dit uit
+                System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
+                scanner.next(); // verwijder de ongeldige invoer uit de scanner
+            }
+        }
+
+        Opties optie1 = new Opties();
+        if (keuze == 1) {
+            optie1.aanmakenOptiesPlezierjacht1();
+            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
+            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
+            APMarine.opties.addAll(gekozenEssentieel);
+            APMarine.opties.addAll(gekozenOptioneel);
+            offerte.setBoot(APMarine);
+        }
+        if (keuze == 2) {
+            optie1.aanmakenOptiesPlezierjacht2();
+            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
+            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
+            APMarine.opties.addAll(gekozenEssentieel);
+            APMarine.opties.addAll(gekozenOptioneel);
+            offerte.setBoot(Quinness);
+        }
+        if (keuze == 3) {
+            optie1.aanmakenOptiesZeiljacht();
+            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
+            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
+            APMarine.opties.addAll(gekozenEssentieel);
+            APMarine.opties.addAll(gekozenOptioneel);
+            offerte.setBoot(Zeilbootje);
+        }
+        korting.checkKorting();
+        offerte.setKlant(klant);
+        offerte.setKorting(korting);
+        offerte.printOfferte();
     }
 }
