@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Botenlist{
+class Botenlist {
     ArrayList<Boot> boten = new ArrayList<>();
-    public void printBotenLijst(){
+
+    public void printBotenLijst() {
         for (Boot b : boten) {
             System.out.println();
             System.out.println("Naam: " + b.getNaam());
@@ -13,6 +14,15 @@ class Botenlist{
             System.out.println("Lengte: " + b.getLengte() + "M");
             System.out.println("Gewicht: " + b.getGewicht() + "KG");
         }
+    }
+
+    public void berekening() {
+        double totaleprijs =0;
+        for (Boot b : boten) {
+            totaleprijs += b.getPrijs();
+        }
+        System.out.println("");
+        System.out.printf("Dit is uw totale prijs: € %.2f", totaleprijs);
     }
 }
  class Boot{
@@ -401,7 +411,7 @@ public class main {
         botenlist.boten.add(Quinness);
         botenlist.boten.add(Zeilbootje);
         botenlist.printBotenLijst();
-
+        botenlist.berekening();
         //Boten printen
 //        APMarine.printBoot();
 //        Zeilbootje.printBoot();

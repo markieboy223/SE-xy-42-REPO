@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="89848b26-d923-47ee-aa06-046527833f39" name="Changes" comment="class Opties, Optie en Keuze toegevoegd met de bijbehorende methodes en essentiële + optionele opties. Comments waar nodig om aan te geven wat er gebeurt." />
     <list default="true" id="215fcea3-598f-4c69-8599-08836a9c31ea" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
+=======
+    <list default="true" id="89848b26-d923-47ee-aa06-046527833f39" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" afterDir="false" />
+>>>>>>> rayen
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" afterDir="false" />
