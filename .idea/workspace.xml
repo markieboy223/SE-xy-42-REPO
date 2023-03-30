@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="89848b26-d923-47ee-aa06-046527833f39" name="Changes" comment="class Opties, Optie en Keuze toegevoegd met de bijbehorende methodes en essentiële + optionele opties. Comments waar nodig om aan te geven wat er gebeurt." />
-    <list default="true" id="215fcea3-598f-4c69-8599-08836a9c31ea" name="Changes" comment="test">
-      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
+    <list default="true" id="ca4e6061-0a99-40c7-8c26-639cccbc561f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
