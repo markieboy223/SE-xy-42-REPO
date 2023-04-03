@@ -95,9 +95,12 @@ class Botenlist {
         double totaleprijs =0;
         for (Boot b : boten) {
             totaleprijs += b.getPrijs();
+            b.opties.size();
+
         }
         System.out.println("");
         System.out.printf("Dit is uw totale prijs: € %.2f", totaleprijs);
+
     }
 }
 
