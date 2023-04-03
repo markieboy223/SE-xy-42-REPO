@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 
 class Offerte{
+    private Klant klant;
+    private Korting korting;
+    protected Boot boot;
+
     public void setKlant(Klant klant) {
         this.klant = klant;
     }
@@ -15,9 +19,6 @@ class Offerte{
         this.boot = boot;
     }
 
-    private Klant klant;
-    private Korting korting;
-    protected Boot boot;
     public void printOfferte(){
         boolean milieukorting = false;
         boolean bulkkorting = false;
