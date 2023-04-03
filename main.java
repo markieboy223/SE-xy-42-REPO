@@ -673,3 +673,4 @@ public class main {
         offerte.printOfferte();
     }
 }
+//test
