@@ -101,7 +101,7 @@ class Botenlist {
         System.out.println();
     }
 }
-class Boot extends Offerte{
+class Boot{
     ArrayList <Optie> opties = new ArrayList<Optie>();
 
     public ArrayList<Optie> getOpties() {
