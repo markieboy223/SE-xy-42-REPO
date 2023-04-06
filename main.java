@@ -497,7 +497,7 @@ class Keuze extends Optie{
     }
 }
 
-class Klant extends Offerte{
+class Klant {
     private String voornaam = "";
 
     private String achternaam = "";
