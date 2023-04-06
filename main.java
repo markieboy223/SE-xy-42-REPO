@@ -632,7 +632,7 @@ class Klant {
     }
 }
 
-class Korting extends Offerte{
+class Korting {
     ArrayList<Kortinglijst> kortingenLijst = new ArrayList<>();
 
     public void maakKorting(){
