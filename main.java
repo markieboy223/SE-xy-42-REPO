@@ -149,7 +149,6 @@ class Boot extends Offerte{
         System.out.println("Lengte: " + lengte + "M");
         System.out.println("Gewicht: " + gewicht+ "KG");
     }
-
 }
 class Plezierjacht extends Boot {
     public Plezierjacht(String naam, String type, String merk, double prijs, double lengte, double gewicht){
@@ -168,12 +167,10 @@ class Zeiljacht extends Boot {
         System.out.print("Zeil: " + zeil);
     }
 }
-
 class Opties{
     //Deze 2 lijsten bevatten alle beschikbare opties.
     protected ArrayList<Optie> Essentieel = new ArrayList<>();
     protected ArrayList<Optie> Optioneel = new ArrayList<>();
-
     public ArrayList<Optie> kiesOptieEssentieel(){
         //Dit wordt aangeroepen als de klant de essentiële opties gaat kiezen, er wordt een ArrayList gereturned met de keuzes.
         ArrayList<Optie> gekozenEssentieel = new ArrayList<>();
@@ -214,7 +211,6 @@ class Opties{
         }
         return gekozenEssentieel;
     }
-
     public ArrayList<Optie> kiesOptieOptioneel(){
         //Dit wordt aangeroepen als de klant de optionele opties gaat kiezen, er wordt een ArrayList gereturned met de keuzes.
         ArrayList<Optie> gekozenOptioneel = new ArrayList<>();
@@ -242,7 +238,6 @@ class Opties{
                     scanner.next(); // verwijder de ongeldige invoer uit de scanner
                 }
             }
-
             if (check == 0){
                 continue;
             }
@@ -259,7 +254,6 @@ class Opties{
         }
         return gekozenOptioneel;
     }
-
     public void aanmakenOptiesPlezierjacht1(){
         //Hier worden de verschillende essentiële en optionele opties aangemaakt.
         Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
@@ -316,7 +310,6 @@ class Opties{
         personeel.voegToe(pers3);
         Optioneel.add(personeel);
     }
-
     public void aanmakenOptiesPlezierjacht2(){
         //Hier worden de verschillende essentiële en optionele opties aangemaakt.
         Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
