@@ -590,8 +590,6 @@ class Klant {
 
 
 
-
-
         if (keuze == 1) {
 
         } else if (keuze == 2) { //
@@ -654,7 +652,7 @@ class Korting extends Offerte{
         }
     }
 }
-class Kortinglijst extends Korting{
+class Kortinglijst {
     protected String type;
     protected Double percentage;
     protected boolean check = false;
