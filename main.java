@@ -101,8 +101,14 @@ class Botenlist {
     }
 }
 
-class Boot {
+abstract class Boot {
     ArrayList <Optie> opties = new ArrayList<Optie>();
+    private String naam;
+    private String type;
+    private String merk;
+    private Double prijs;
+    private Double lengte;
+    private Double gewicht;
 
     public ArrayList<Optie> getOpties() {
         return opties;
@@ -154,13 +160,6 @@ class Boot {
     public void setGewicht(double gewicht) {
         this.gewicht = gewicht;
     }
-
-    private String naam;
-    private String type;
-    private String merk;
-    private Double prijs;
-    private Double lengte;
-    private Double gewicht;
 
     public Boot(String naam, String type, String merk, double prijs, double lengte, double gewicht) {
         this.naam = naam;
@@ -676,25 +675,13 @@ public class main {
 
         System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
 
-        //Klant
-//        Klant klant = new Klant("", 0.0);
-//        klant.klantNaam();
         Klant klant = new Klant();
         klant.klantNaam();
 
-        //Boten menu
-//        System.out.println("Hier de lijst met beschikbare boten om uit te kiezen.");
-        //Boten aanmaken
-        Boot boot = new Boot("boot", "boot", "boot", 25000.00, 15.2, 4000);
+        //Boten
         Boot APMarine = new Plezierjacht("AP Marine", "Plezierjacht", "Marine", 25000.00, 15.2, 4000);
         Boot Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
         Boot Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
-
-//        boot.printBoot();
-//        APMarine.printBoot();
-//        Quinness.printBoot();
-//        Zeilbootje.printBoot();
-
 
         //BotenList
         Botenlist botenlist = new Botenlist();
@@ -703,24 +690,11 @@ public class main {
         botenlist.boten.add(Zeilbootje);
         botenlist.printBotenLijst();
         botenlist.berekening();
-        //Boten printen
-//        APMarine.printBoot();
-//        Zeilbootje.printBoot();
-//        Quinness.printBoot();
-
-        //Boot kiezen met klant
-
-//        Opties opties = new Opties();
-//        opties.aanmakenOpties();
-//        ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(opties.kiesOptieEssentieel());
-//        ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(opties.kiesOptieOptioneel());
 
         botenlist.printBotenLijst();
         botenlist.berekening();
 
-
         //Boot kiezen met klant
-
         System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
         Scanner scanner = new Scanner(System.in);
         int keuze = -1;
