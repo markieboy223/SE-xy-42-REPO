@@ -551,7 +551,7 @@ public class main {
     public static void main(String[] args) {
 
         Offerte offerte = new Offerte();
-        Korting korting= new Korting();
+        Korting korting = new Korting();
 
         System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
 
@@ -570,57 +570,36 @@ public class main {
         botenlist.boten.add(Zeilbootje);
         botenlist.printBotenLijst();
 
-
-        //Boot kiezen met klant
+        // Boot kiezen met klant
         System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
         Scanner scanner = new Scanner(System.in);
         int keuze = -1;
-        while (keuze < 1 || keuze > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
-            if (scanner.hasNextInt()) { // hier controleert hij of er wel een int, is ingevuld en niet bijvoorbeeld een string
+        while (keuze < 1 || keuze > 3) { // blijft de vraag stellen totdat een geldige keuze wordt ingevoerd
+            if (scanner.hasNextInt()) { // controleert of een integer wordt ingevoerd
                 keuze = scanner.nextInt();
-                if (keuze < 1 || keuze > 3) { // als het geen 1,2 of 3 is print hij dit uit
-                    System.out.println("Ongeldige invoer. Getal is niet 1, 2 of 3");
+                if (keuze < 1 || keuze > 3) { // als de keuze ongeldig is
+                    System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
                 }
-            } else { // als het iets anders dan een int is print hij dit uit
+            } else { // als de invoer geen integer is
                 System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
                 scanner.next(); // verwijder de ongeldige invoer uit de scanner
             }
         }
 
-        Opties optie1 = new Opties();
-        if (keuze == 1) {
-            optie1.aanmakenOpties();
-            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
-            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
-            APMarine.opties.addAll(gekozenEssentieel);
-            APMarine.opties.addAll(gekozenOptioneel);
-            offerte.setBoot(APMarine);
-            offerte.setKorting(korting);
-            korting.maakKorting();
-            korting.checkKorting(offerte.boot);
-        }
-        if (keuze == 2) {
-            optie1.aanmakenOpties();
-            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
-            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
-            Quinness.opties.addAll(gekozenEssentieel);
-            Quinness.opties.addAll(gekozenOptioneel);
-            offerte.setBoot(Quinness);
-            offerte.setKorting(korting);
-            korting.maakKorting();
-            korting.checkKorting(offerte.boot);
-        }
-        if (keuze == 3) {
-            optie1.aanmakenOpties();
-            ArrayList<Optie> gekozenEssentieel = new ArrayList<Optie>(optie1.kiesOptieEssentieel());
-            ArrayList<Optie> gekozenOptioneel = new ArrayList<Optie>(optie1.kiesOptieOptioneel());
-            Zeilbootje.opties.addAll(gekozenEssentieel);
-            Zeilbootje.opties.addAll(gekozenOptioneel);
-            offerte.setBoot(Zeilbootje);
-            offerte.setKorting(korting);
-            korting.maakKorting();
-            korting.checkKorting(offerte.boot);
-        }
+        Opties opties = new Opties();
+        opties.aanmakenOpties();
+
+        ArrayList<Optie> gekozenEssentieel = opties.kiesOptieEssentieel();
+        ArrayList<Optie> gekozenOptioneel = opties.kiesOptieOptioneel();
+
+        botenlist.boten.get(keuze - 1).opties.addAll(gekozenEssentieel);
+        botenlist.boten.get(keuze - 1).opties.addAll(gekozenOptioneel);
+
+        offerte.setBoot(botenlist.boten.get(keuze - 1));
+        offerte.setKorting(korting);
+        korting.maakKorting();
+        korting.checkKorting(offerte.boot);
+
         offerte.setKlant(klant);
         offerte.printOfferte();
     }
