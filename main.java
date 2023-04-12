@@ -82,13 +82,7 @@ class Botenlist {
     ArrayList<Boot> boten = new ArrayList<>();
     public void printBotenLijst() {
         for (Boot b : boten) {
-            System.out.println();
-            System.out.println("Naam: " + b.getNaam());
-            System.out.println("Type: " + b.getType());
-            System.out.println("Merk: " + b.getMerk());
-            System.out.println("Prijs: " + b.getPrijs() + " Euro");
-            System.out.println("Lengte: " + b.getLengte() + "M");
-            System.out.println("Gewicht: " + b.getGewicht() + "KG");
+            b.printBoot();
         }
     }
     public void berekening() {
@@ -105,7 +99,6 @@ abstract class Boot {
     ArrayList <Optie> opties = new ArrayList<Optie>();
     private String naam;
     private String type;
-    private String merk;
     private Double prijs;
     private Double lengte;
     private Double gewicht;
@@ -127,14 +120,6 @@ abstract class Boot {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getMerk() {
-        return merk;
-    }
-
-    public void setMerk(String merk) {
-        this.merk = merk;
     }
 
     public double getPrijs() {
@@ -161,39 +146,46 @@ abstract class Boot {
         this.gewicht = gewicht;
     }
 
-    public Boot(String naam, String type, String merk, double prijs, double lengte, double gewicht) {
+    public Boot(String naam, String type, double prijs, double lengte, double gewicht) {
         this.naam = naam;
         this.type = type;
-        this.merk = merk;
         this.prijs = prijs;
         this.lengte = lengte;
         this.gewicht = gewicht;
     }
-
-     public void printBoot(){
-         System.out.println();
-         System.out.println("Naam: " + naam);
-         System.out.println("Type: " + type);
-         System.out.println("Merk: " + merk);
-         System.out.println("Prijs: " + prijs + " Euro");
-         System.out.println("Lengte: " + lengte + "M");
-         System.out.println("Gewicht: " + gewicht + "KG");
-     }
+    abstract void printBoot();
 }
 class Plezierjacht extends Boot {
-    public Plezierjacht(String naam, String type, String merk, double prijs, double lengte, double gewicht){
-        super(naam, type, merk, prijs, lengte, gewicht);
+    private String bestemd;
+    public Plezierjacht(String naam, String type, double prijs, double lengte, double gewicht, String bestemd){
+        super(naam, type, prijs, lengte, gewicht);
+        this.bestemd = bestemd;
+    }
+    @Override
+    public void printBoot(){
+        System.out.println();
+        System.out.println("Naam: " + getNaam());
+        System.out.println("Type: " + getType());
+        System.out.println("Prijs: " + getPrijs() + " Euro");
+        System.out.println("Lengte: " + getLengte() + "M");
+        System.out.println("Gewicht: " + getGewicht() + "KG");
+        System.out.print("Bestemd: " + bestemd);
     }
 }
 class Zeiljacht extends Boot {
     private String zeil;
-    public Zeiljacht(String naam, String type, String merk, double prijs, double lengte, double gewicht, String zeil){
-        super(naam, type, merk, prijs, lengte, gewicht);
+    public Zeiljacht(String naam, String type, double prijs, double lengte, double gewicht, String zeil){
+        super(naam, type, prijs, lengte, gewicht);
         this.zeil = zeil;
     }
     @Override
     public void printBoot(){
-        super.printBoot();
+        System.out.println();
+        System.out.println("Naam: " + getNaam());
+        System.out.println("Type: " + getType());
+        System.out.println("Prijs: " + getPrijs() + " Euro");
+        System.out.println("Lengte: " + getLengte() + "M");
+        System.out.println("Gewicht: " + getGewicht() + "KG");
         System.out.print("Zeil: " + zeil);
     }
 }
@@ -679,9 +671,9 @@ public class main {
         klant.klantNaam();
 
         //Boten
-        Boot APMarine = new Plezierjacht("AP Marine", "Plezierjacht", "Marine", 25000.00, 15.2, 4000);
-        Boot Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", "Guinness", 50000.00, 20.5, 5000);
-        Boot Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", "Marine", 30000.00, 15.2, 4000, "zeil");
+        Boot APMarine = new Plezierjacht("AP Marine", "Plezierjacht", 25000.00, 15.2, 4000, "prive");
+        Boot Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", 50000.00, 20.5, 5000, "pleziervaart");
+        Boot Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", 30000.00, 15.2, 4000, "zeil");
 
         //BotenList
         Botenlist botenlist = new Botenlist();
@@ -691,8 +683,6 @@ public class main {
         botenlist.printBotenLijst();
         botenlist.berekening();
 
-        botenlist.printBotenLijst();
-        botenlist.berekening();
 
         //Boot kiezen met klant
         System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
