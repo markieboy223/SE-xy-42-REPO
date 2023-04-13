@@ -194,9 +194,9 @@ class Opties{
 
         for(Optie optie : Essentieel) {
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
-            System.out.println("Optie 1: " + optie.keuzes.get(0).omschrijving);
-            System.out.println("Optie 2: " + optie.keuzes.get(1).omschrijving);
-            System.out.println("Optie 3: " + optie.keuzes.get(2).omschrijving);
+            for (int i = 0; i < optie.keuzes.size(); i++) {
+                System.out.println("Optie "+ (i + 1) +": " + optie.keuzes.get(i).omschrijving);
+            }
             System.out.println();
             System.out.println("Als u voor de volgende 3 opties de basis uitvoering kiest (optie 1) krijgt u 10% korting op de totaalprijs.");
             System.out.println("Type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
@@ -214,15 +214,7 @@ class Opties{
                     scanner.next(); // verwijder de ongeldige invoer uit de scanner
                 }
             }
-            if (check == 1) {
-                gekozenEssentieel.add(optie.keuzes.get(0));
-            }
-            if (check == 2) {
-                gekozenEssentieel.add(optie.keuzes.get(1));
-            }
-            if (check == 3) {
-                gekozenEssentieel.add(optie.keuzes.get(2));
-            }
+            gekozenEssentieel.add(optie.keuzes.get(check - 1));
             System.out.println();
         }
         return gekozenEssentieel;
@@ -236,9 +228,9 @@ class Opties{
 
         for(Optie optie : Optioneel) {
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
-            System.out.println("Optie 1: " + optie.keuzes.get(0).omschrijving);
-            System.out.println("Optie 2: " + optie.keuzes.get(1).omschrijving);
-            System.out.println("Optie 3: " + optie.keuzes.get(2).omschrijving);
+            for (int i = 0; i < optie.keuzes.size(); i++) {
+                System.out.println("Optie "+ (i + 1) +": " + optie.keuzes.get(i).omschrijving);
+            }
             System.out.println("Type '0' als u niks wilt toevoegen, type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
 
             Scanner scanner = new Scanner(System.in);
@@ -257,14 +249,8 @@ class Opties{
             if (check == 0){
                 continue;
             }
-            if (check == 1) {
-                gekozenOptioneel.add(optie.keuzes.get(0));
-            }
-            if (check == 2) {
-                gekozenOptioneel.add(optie.keuzes.get(1));
-            }
-            if (check == 3) {
-                gekozenOptioneel.add(optie.keuzes.get(2));
+            if (check != 0) {
+                gekozenOptioneel.add(optie.keuzes.get(check - 1));
             }
             System.out.println();
         }
