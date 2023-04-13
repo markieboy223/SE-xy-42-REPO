@@ -121,9 +121,9 @@ abstract class Boot {
     ArrayList <Optie> opties = new ArrayList<>();
     private String naam;
     private String type;
-    private Double prijs;
-    private Double lengte;
-    private Double gewicht;
+    private double prijs;
+    private double lengte;
+    private double gewicht;
 
     public String getNaam() {
         return naam;
@@ -407,10 +407,10 @@ class Optie extends Opties{
     protected ArrayList<Keuze> keuzes = new ArrayList<>();
     protected String naam;
     protected String omschrijving;
-    protected Double prijs;
+    protected double prijs;
     protected Boolean isEssentieel;
 
-    public Optie(String naam, String omschrijving, Double prijs, Boolean isEssentieel){
+    public Optie(String naam, String omschrijving, double prijs, Boolean isEssentieel){
         this.naam = naam;
         this.omschrijving = omschrijving;
         this.prijs = prijs;
@@ -428,7 +428,7 @@ class Optie extends Opties{
 }
 class Keuze extends Optie{
     protected int optie;
-    public Keuze(String naam, String omschrijving, Double prijs, Boolean isEssentieel, int optie) {
+    public Keuze(String naam, String omschrijving, double prijs, Boolean isEssentieel, int optie) {
         super(naam, omschrijving, prijs, isEssentieel);
         this.optie = optie;
     }
@@ -598,15 +598,15 @@ class Kortinglijst {
 }
 class Korting {
     protected String type;
-    protected Double percentage;
+    protected double percentage;
     protected boolean check = false;
     public String getType() {
         return type;
     }
-    public Double getPercentage() {
+    public double getPercentage() {
         return percentage;
     }
-    public Korting(String type, Double percentage) {
+    public Korting(String type, double percentage) {
         this.type = type;
         this.percentage = percentage;
     }
