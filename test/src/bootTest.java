@@ -1,7 +1,9 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 class Botenlist {
     ArrayList<Boot> boten = new ArrayList<>();
@@ -11,14 +13,6 @@ class Botenlist {
             b.printBoot();
             System.out.println();
         }
-    }
-    public void berekening() {
-        double totaleprijs =0;
-        for (Boot b : boten) {
-            totaleprijs += b.getPrijs();
-        }
-        System.out.println("Dit is uw totale prijs: € "+ totaleprijs);
-        System.out.println();
     }
 }
 
@@ -95,7 +89,7 @@ abstract class Boot {
         this.lengte = lengte;
         this.gewicht = gewicht;
     }
-    abstract void printBoot();
+    abstract String printBoot();
 }
 class Plezierjacht extends Boot {
     private String bestemd;
@@ -104,14 +98,13 @@ class Plezierjacht extends Boot {
         this.bestemd = bestemd;
     }
     @Override
-    public void printBoot(){
-        System.out.println();
-        System.out.println("Naam: " + getNaam());
-        System.out.println("Type: " + getType());
-        System.out.println("Prijs: " + getPrijs() + " Euro");
-        System.out.println("Lengte: " + getLengte() + "M");
-        System.out.println("Gewicht: " + getGewicht() + "KG");
-        System.out.print("Bestemd: " + bestemd);
+    public String printBoot(){
+        return "Naam: " + getNaam() +
+                "Type: " + getType() +
+                "Prijs: " + getPrijs() + " Euro " +
+                "Lengte: " + getLengte() + "M " +
+                "Gewicht: " + getGewicht() + "KG " +
+                "Bestemd: " + bestemd;
     }
 }
 class Zeiljacht extends Boot {
@@ -121,23 +114,42 @@ class Zeiljacht extends Boot {
         this.zeil = zeil;
     }
     @Override
-    public void printBoot(){
-        System.out.println();
-        System.out.println("Naam: " + getNaam());
-        System.out.println("Type: " + getType());
-        System.out.println("Prijs: " + getPrijs() + " Euro");
-        System.out.println("Lengte: " + getLengte() + "M");
-        System.out.println("Gewicht: " + getGewicht() + "KG");
-        System.out.print("Zeil: " + zeil);
+    public String printBoot(){
+        return "Naam: " + getNaam() +
+                "Type: " + getType() +
+                "Prijs: " + getPrijs() + " Euro " +
+                "Lengte: " + getLengte() + "M " +
+                "Gewicht: " + getGewicht() + "KG " +
+                "Zeil: " + zeil;
     }
 }
 
-
 public class bootTest {
     @Test
-    public void testBoot() {
+    public void Botenlist() {
+        // Arrange
+        int verwacht = 2;
+        Botenlist botenlist = new Botenlist();
+        Plezierjacht pj = new Plezierjacht("Plezierjacht 1", "Plezierjacht", 50000, 8, 2000, "Familie-uitjes");
+        Zeiljacht zj = new Zeiljacht("Zeiljacht 1", "Zeiljacht", 75000, 12, 3000, "Grootzeil");
 
+        //Act
+        botenlist.boten.add(pj);
+        botenlist.boten.add(zj);
 
+        // Assert
+        Assertions.assertEquals(verwacht, botenlist.boten.size());
+    }
 
+    @Test
+    public void testPrintBoot() {
+        // Arrange
+        Plezierjacht pj = new Plezierjacht("Plezierjacht 1 ", "Plezierjacht ", 50000, 8, 2000, "Familie-uitjes ");
+        // Act
+        String boot = pj.printBoot();
+
+        // Assert
+        String verwacht = "Naam: Plezierjacht 1 Type: Plezierjacht Prijs: 50000.0 Euro Lengte: 8.0M Gewicht: 2000.0KG Bestemd: Familie-uitjes ";
+        Assertions.assertEquals(verwacht, boot);
     }
 }

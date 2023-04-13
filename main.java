@@ -113,11 +113,11 @@ class Offerte{
 class Botenlist {
     ArrayList<Boot> boten = new ArrayList<>();
     public void printBotenLijst() {
+        System.out.println("Ons assortiment aan boten waaruit u als klant kunt kiezen: ");
         for (Boot b : boten) {
-            System.out.println("Ons assortiment aan boten waaruit u als klant kunt kiezen: ");
-            b.printBoot();
-            System.out.println();
+            System.out.println(b.printBoot());
         }
+        System.out.println();
     }
 }
 
@@ -195,7 +195,7 @@ abstract class Boot {
         this.lengte = lengte;
         this.gewicht = gewicht;
     }
-    abstract void printBoot();
+    abstract String printBoot();
 }
 class Plezierjacht extends Boot {
     private String bestemd;
@@ -204,14 +204,13 @@ class Plezierjacht extends Boot {
         this.bestemd = bestemd;
     }
     @Override
-    public void printBoot(){
-        System.out.println();
-        System.out.println("Naam: " + getNaam());
-        System.out.println("Type: " + getType());
-        System.out.println("Prijs: " + getPrijs() + " Euro");
-        System.out.println("Lengte: " + getLengte() + "M");
-        System.out.println("Gewicht: " + getGewicht() + "KG");
-        System.out.print("Bestemd: " + bestemd);
+    public String printBoot(){
+        return "Naam: " + getNaam() +
+                "Type: " + getType() +
+                "Prijs: " + getPrijs() + " Euro " +
+                "Lengte: " + getLengte() + "M " +
+                "Gewicht: " + getGewicht() + "KG " +
+                "Bestemd: " + bestemd;
     }
 }
 class Zeiljacht extends Boot {
@@ -221,14 +220,13 @@ class Zeiljacht extends Boot {
         this.zeil = zeil;
     }
     @Override
-    public void printBoot(){
-        System.out.println();
-        System.out.println("Naam: " + getNaam());
-        System.out.println("Type: " + getType());
-        System.out.println("Prijs: " + getPrijs() + " Euro");
-        System.out.println("Lengte: " + getLengte() + "M");
-        System.out.println("Gewicht: " + getGewicht() + "KG");
-        System.out.print("Zeil: " + zeil);
+    public String printBoot(){
+        return "Naam: " + getNaam() +
+                "Type: " + getType() +
+                "Prijs: " + getPrijs() + " Euro " +
+                "Lengte: " + getLengte() + "M " +
+                "Gewicht: " + getGewicht() + "KG " +
+                "Zeil: " + zeil;
     }
 }
 class Opties{
