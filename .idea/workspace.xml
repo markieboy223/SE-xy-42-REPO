@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69ddeb31-db2f-4e88-855c-71bdf757b028" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/test/Boot.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/test/Botenlist.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/test/Plezierjacht.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/test/Zeiljacht.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/test/bootTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/test/classpath.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/src/bootTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SE-xy-42-REPO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SE-xy-42-REPO.iml" afterDir="false" />
+    <change beforePath="$PROJECT_DIR$/.idea/SE-xy-42-REPO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SE-xy-42-REPO.iml" afterDir="false" />
+    <list default="true" id="ca4e6061-0a99-40c7-8c26-639cccbc561f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" afterDir="false" />
@@ -30,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/test/BerekeningTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/BerekeningTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,11 +71,39 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Misha/IdeaProjects/MyFirstTest&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.bootTest.testPrintBoot">
+  <component name="RunManager" selected="JUnit.KortinglijstTest">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="SE-xy-42-REPO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KortingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="KortingTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KortinglijstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="KortinglijstTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KortinglijstTest.testMaakKorting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="KortinglijstTest" />
+      <option name="METHOD_NAME" value="testMaakKorting" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -106,16 +128,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="bootTest.testPrintBotenLijst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="bootTest" />
-      <option name="METHOD_NAME" value="testPrintBotenLijst" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KortinglijstTest" />
         <item itemvalue="JUnit.bootTest.testPrintBoot" />
         <item itemvalue="JUnit.bootTest.Botenlist" />
-        <item itemvalue="Application.main" />
-        <item itemvalue="JUnit.bootTest.testPrintBotenLijst" />
-        <item itemvalue="Application.main" />
+        <item itemvalue="JUnit.KortingTest" />
+        <item itemvalue="JUnit.KortinglijstTest.testMaakKorting" />
       </list>
     </recent_temporary>
   </component>
