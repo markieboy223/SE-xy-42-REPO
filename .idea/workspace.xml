@@ -4,9 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69ddeb31-db2f-4e88-855c-71bdf757b028" name="Changes" comment="tests voor de class Opties.">
-      <change afterPath="$PROJECT_DIR$/test/src/testOptie.java" afterDir="false" />
+    <list default="true" id="69ddeb31-db2f-4e88-855c-71bdf757b028" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/test/Boot.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/test/Botenlist.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/test/Plezierjacht.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/test/Zeiljacht.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/test/bootTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/test/classpath.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/src/bootTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SE-xy-42-REPO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SE-xy-42-REPO.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Klant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Klant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Korting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Korting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Kortinglijst.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Kortinglijst.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Offerte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Offerte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Optie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Optie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Opties.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Opties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/BerekeningTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/BerekeningTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="misha" />
+        <entry key="$PROJECT_DIR$" value="Rayen" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,14 +70,14 @@
   &quot;keyToString&quot;: {
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Misha/IdeaProjects/MyFirstTest&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.testOpties.testkiesOptieEssentieel">
+  <component name="RunManager" selected="JUnit.bootTest.testPrintBoot">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="MAIN_CLASS_NAME" value="main" />
@@ -63,41 +86,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testOpties.testNieuweOptie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="bootTest.Botenlist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="testOpties" />
-      <option name="METHOD_NAME" value="testNieuweOptie" />
+      <option name="MAIN_CLASS_NAME" value="bootTest" />
+      <option name="METHOD_NAME" value="Botenlist" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testOpties.testaanmakenOpties" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="bootTest.testPrintBoot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="testOpties" />
-      <option name="METHOD_NAME" value="testaanmakenOpties" />
+      <option name="MAIN_CLASS_NAME" value="bootTest" />
+      <option name="METHOD_NAME" value="testPrintBoot" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testOpties.testkiesOptieEssentieel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="bootTest.testPrintBotenLijst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="testOpties" />
-      <option name="METHOD_NAME" value="testkiesOptieEssentieel" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="testOpties.testkiesOptieOptioneel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="testOpties" />
-      <option name="METHOD_NAME" value="testkiesOptieOptioneel" />
+      <option name="MAIN_CLASS_NAME" value="bootTest" />
+      <option name="METHOD_NAME" value="testPrintBotenLijst" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.testOptie.testVoegToe" />
-        <item itemvalue="JUnit.testOpties.testNieuweOptie" />
-        <item itemvalue="JUnit.testOpties.testkiesOptieOptioneel" />
-        <item itemvalue="JUnit.testOpties.testkiesOptieEssentieel" />
-        <item itemvalue="JUnit.testOpties.testaanmakenOpties" />
+        <item itemvalue="JUnit.bootTest.testPrintBoot" />
+        <item itemvalue="JUnit.bootTest.Botenlist" />
+        <item itemvalue="Application.main" />
+        <item itemvalue="JUnit.bootTest.testPrintBotenLijst" />
+        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
@@ -140,14 +153,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680165842259</updated>
     </task>
-    <task id="LOCAL-00002" summary="tests voor de class Opties.">
-      <created>1681387700393</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1681387700393</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,8 +170,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
-    <MESSAGE value="tests voor de class Opties." />
-    <option name="LAST_COMMIT_MESSAGE" value="tests voor de class Opties." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
