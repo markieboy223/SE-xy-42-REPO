@@ -90,14 +90,6 @@ class Botenlist {
             System.out.println();
         }
     }
-    public void berekening() {
-        double totaleprijs =0;
-        for (Boot b : boten) {
-            totaleprijs += b.getPrijs();
-        }
-        System.out.println("Dit is uw totale prijs: € "+ totaleprijs);
-        System.out.println();
-    }
 }
 
 abstract class Boot {
@@ -202,9 +194,9 @@ class Opties{
 
         for(Optie optie : Essentieel) {
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
-            System.out.println("Optie 1: " + optie.keuzes.get(0).omschrijving);
-            System.out.println("Optie 2: " + optie.keuzes.get(1).omschrijving);
-            System.out.println("Optie 3: " + optie.keuzes.get(2).omschrijving);
+            for (int i = 0; i < optie.keuzes.size(); i++) {
+                System.out.println("Optie "+ (i + 1) +": " + optie.keuzes.get(i).omschrijving);
+            }
             System.out.println();
             System.out.println("Als u voor de volgende 3 opties de basis uitvoering kiest (optie 1) krijgt u 10% korting op de totaalprijs.");
             System.out.println("Type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
@@ -222,15 +214,7 @@ class Opties{
                     scanner.next(); // verwijder de ongeldige invoer uit de scanner
                 }
             }
-            if (check == 1) {
-                gekozenEssentieel.add(optie.keuzes.get(0));
-            }
-            if (check == 2) {
-                gekozenEssentieel.add(optie.keuzes.get(1));
-            }
-            if (check == 3) {
-                gekozenEssentieel.add(optie.keuzes.get(2));
-            }
+            gekozenEssentieel.add(optie.keuzes.get(check - 1));
             System.out.println();
         }
         return gekozenEssentieel;
@@ -244,9 +228,9 @@ class Opties{
 
         for(Optie optie : Optioneel) {
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
-            System.out.println("Optie 1: " + optie.keuzes.get(0).omschrijving);
-            System.out.println("Optie 2: " + optie.keuzes.get(1).omschrijving);
-            System.out.println("Optie 3: " + optie.keuzes.get(2).omschrijving);
+            for (int i = 0; i < optie.keuzes.size(); i++) {
+                System.out.println("Optie "+ (i + 1) +": " + optie.keuzes.get(i).omschrijving);
+            }
             System.out.println("Type '0' als u niks wilt toevoegen, type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
 
             Scanner scanner = new Scanner(System.in);
@@ -265,14 +249,8 @@ class Opties{
             if (check == 0){
                 continue;
             }
-            if (check == 1) {
-                gekozenOptioneel.add(optie.keuzes.get(0));
-            }
-            if (check == 2) {
-                gekozenOptioneel.add(optie.keuzes.get(1));
-            }
-            if (check == 3) {
-                gekozenOptioneel.add(optie.keuzes.get(2));
+            if (check != 0) {
+                gekozenOptioneel.add(optie.keuzes.get(check - 1));
             }
             System.out.println();
         }
@@ -353,13 +331,11 @@ class Opties{
     }
 }
 class Optie extends Opties{
-
     protected ArrayList<Keuze> keuzes = new ArrayList<>();
     protected String naam;
     protected String omschrijving;
     protected Double prijs;
     protected Boolean isEssentieel;
-
     public Optie(String naam, String omschrijving, Double prijs, Boolean isEssentieel){
         this.naam = naam;
         this.omschrijving = omschrijving;
@@ -380,13 +356,11 @@ class Keuze extends Optie{
 
 class Klant {
     private String voornaam = "";
-
     private String achternaam = "";
     private String naam = "";
     private String adres = "";
     private int kvkNummer = 0;
     private boolean isOverheid = false;
-
 
     public void klantNaam() {
         Scanner scanner = new Scanner(System.in);
@@ -420,7 +394,6 @@ class Klant {
                 if (naam.length() <= 20) {
                     waar1 = true;
                 }
-
             }
             System.out.println("Is dit uw naam " + naam);
             String kies = "";
@@ -439,18 +412,11 @@ class Klant {
                 naamwaar = true;
             }
         }
+        scanner.nextLine();
         boolean adreswaar = false;
-
         while (!adreswaar) {
             System.out.println("Geef uw adres:");
             adres = scanner.nextLine();
-            scanner.next();
-            boolean waar1 = false;
-            while (!waar1) {
-                if (adres.length() <= 20) {
-                    waar1 = true;
-                }
-            }
             System.out.println("Is dit uw adres " + adres);
             String kies = "";
             boolean kiesCorrect = false;
@@ -468,10 +434,7 @@ class Klant {
                 adreswaar = true;
             }
         }
-
-        if (keuze == 1) {
-
-        } else if (keuze == 2) { //
+       if (keuze == 2) { //
             System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
             int kvkNummer = scanner.nextInt();
             int aantalCijfers = 8;
@@ -483,7 +446,6 @@ class Klant {
         } else if (keuze == 3) {
             isOverheid = true;
         }
-
     }
     public void setNaam(String naam) {
         this.naam = naam;
@@ -510,10 +472,8 @@ class Klant {
         this.kvkNummer = kvkNummer;
     }
 }
-
 class Korting {
     ArrayList<Kortinglijst> kortingenLijst = new ArrayList<>();
-
     public void maakKorting(){
         Kortinglijst milieukorting1 = new Kortinglijst("Milieukorting", 0.9);
         Kortinglijst bulkkorting1 = new Kortinglijst("Bulkkorting", 2000.0);
@@ -521,7 +481,6 @@ class Korting {
         kortingenLijst.add(milieukorting1);
         kortingenLijst.add(bulkkorting1);
     }
-
     public void checkKorting(Boot boot){
         if (boot.opties.size() == 6){
             kortingenLijst.get(1).check = true;
