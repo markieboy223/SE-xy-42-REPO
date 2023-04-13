@@ -2,15 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Offerte{
-    private Klant klant;
-    private Korting korting;
+    protected Klant klant;
+    private Kortinglijst kortinglijst;
     protected Boot boot;
     public void setKlant(Klant klant) {
         this.klant = klant;
     }
 
-    public void setKorting(Korting korting) {
-        this.korting = korting;
+    public void setKorting(Kortinglijst kortinglijst) {
+        this.kortinglijst = kortinglijst;
     }
 
     public void setBoot(Boot boot) {
@@ -20,6 +20,9 @@ class Offerte{
     public void printOfferte() {
         boolean milieukorting = false;
         boolean bulkkorting = false;
+        boolean overheid = false;
+        boolean onderneming = false;
+
         System.out.println("Offerte voor: " + boot.getType() + ", " + boot.getNaam());
         System.out.println("Naam klant: " + klant.getNaam());
         System.out.println("Adres: " + klant.getAdres());
@@ -57,30 +60,42 @@ class Offerte{
 
         System.out.println();
         System.out.println("De volgende kortingen zijn toegepast:");
-        if (korting.kortingenLijst.get(0).check){
+        if (kortinglijst.kortingenLijst.get(0).check){
             System.out.println("10% milieukorting");
             milieukorting = true;
         }
-        if (korting.kortingenLijst.get(1).check){
+        if (kortinglijst.kortingenLijst.get(1).check){
             System.out.println("€2000 bulkkorting");
             bulkkorting = true;
+        }
+        if (kortinglijst.kortingenLijst.get(2).check){
+            System.out.println("€1000 overheidskorting");
+            overheid = true;
+        }
+        if (kortinglijst.kortingenLijst.get(3).check){
+            System.out.println("€1000 ondernemingskorting");
+            onderneming = true;
         }
         System.out.println();
         double totaal = boot.getPrijs();
         for (Optie optie : boot.opties){
             totaal = totaal + optie.prijs;
         }
-        if ((!milieukorting && !bulkkorting)) {
+        if ((!milieukorting && !bulkkorting && !overheid && !onderneming)) {
             System.out.println("De totaalprijs is: €" + totaal);
         }
         else{
             System.out.println("De prijs voor het toepassen van de korting is: €" + totaal);
             System.out.println();
-            if (milieukorting){
-                totaal = totaal * korting.kortingenLijst.get(0).getPercentage();
-            }
-            if (bulkkorting){
-                totaal = totaal - korting.kortingenLijst.get(1).getPercentage();
+            for (Korting korting : kortinglijst.kortingenLijst){
+                if (korting.check){
+                    if (korting.getPercentage() > 2) {
+                        totaal = totaal - korting.getPercentage();
+                    }
+                    else{
+                        totaal = totaal * korting.getPercentage();
+                    }
+                }
             }
             System.out.println("De totaalprijs na het toepassen van de korting is: €" + totaal);
         }
@@ -199,14 +214,14 @@ class Zeiljacht extends Boot {
 }
 class Opties{
     //Deze 2 lijsten bevatten alle beschikbare opties.
-    protected ArrayList<Optie> Essentieel = new ArrayList<>();
-    protected ArrayList<Optie> Optioneel = new ArrayList<>();
+    protected ArrayList<Optie> essentieel = new ArrayList<>();
+    protected ArrayList<Optie> optioneel = new ArrayList<>();
     public ArrayList<Optie> kiesOptieEssentieel(){
         //Dit wordt aangeroepen als de klant de essentiële opties gaat kiezen, er wordt een ArrayList gereturned met de keuzes.
         ArrayList<Optie> gekozenEssentieel = new ArrayList<>();
-        System.out.println("Het is voor de volgende " + Essentieel.size() + " opties verplicht om een keuze te maken.");
+        System.out.println("Het is voor de volgende " + essentieel.size() + " opties verplicht om een keuze te maken.");
 
-        for(Optie optie : Essentieel) {
+        for(Optie optie : essentieel) {
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
             int check2 = optie.keuzes.size();
             for (int i = 0; i < optie.keuzes.size(); i++){
@@ -238,11 +253,11 @@ class Opties{
     public ArrayList<Optie> kiesOptieOptioneel(){
         //Dit wordt aangeroepen als de klant de optionele opties gaat kiezen, er wordt een ArrayList gereturned met de keuzes.
         ArrayList<Optie> gekozenOptioneel = new ArrayList<>();
-        System.out.println("Het is voor de volgende " + Optioneel.size() + " opties mogelijk om het niet toe te voegen.");
+        System.out.println("Het is voor de volgende " + optioneel.size() + " opties mogelijk om het niet toe te voegen.");
         System.out.println();
-        System.out.println("Als u alle " + Optioneel.size() + " optionele opties toevoegd krijg u een vaste korting van €2000.");
+        System.out.println("Als u alle " + optioneel.size() + " optionele opties toevoegd krijg u een vaste korting van €2000.");
 
-        for(Optie optie : Optioneel) {
+        for(Optie optie : optioneel) {
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
             int check1 = optie.keuzes.size();
             for (int i = 0; i < optie.keuzes.size(); i++){
@@ -282,7 +297,7 @@ class Opties{
         stuur.voegToe(stuur1);
         stuur.voegToe(stuur2);
         stuur.voegToe(stuur3);
-        Essentieel.add(stuur);
+        essentieel.add(stuur);
 
         Optie motor = new Optie("Moter", "Standaard motor", 10000.0, true);
         Keuze motor1 = new Keuze("Basis Motor", "Standaard motor 500PK.", 10000.0, true, 1);
@@ -291,7 +306,7 @@ class Opties{
         motor.voegToe(motor1);
         motor.voegToe(motor2);
         motor.voegToe(motor3);
-        Essentieel.add(motor);
+        essentieel.add(motor);
 
         Optie reddingsboot = new Optie("Reddingsboot", "Standaard reddingsboot", 2000.0, true);
         Keuze redding1 = new Keuze("Basis reddingsboot", "Standaard reddingsboot met ruimte voor 5", 2000.0, true, 1);
@@ -300,7 +315,7 @@ class Opties{
         reddingsboot.voegToe(redding1);
         reddingsboot.voegToe(redding2);
         reddingsboot.voegToe(redding3);
-        Essentieel.add(reddingsboot);
+        essentieel.add(reddingsboot);
 
         Optie feestboot = new Optie("Party Boat", "Feestelijke toevoegingen", 5000.0, false);
         Keuze feest1 = new Keuze("Basis uitbreiding", "Upgrade aan het audio-systeem en RGB lampen", 5000.0, false, 1);
@@ -309,7 +324,7 @@ class Opties{
         feestboot.voegToe(feest1);
         feestboot.voegToe(feest2);
         feestboot.voegToe(feest3);
-        Optioneel.add(feestboot);
+        optioneel.add(feestboot);
 
         Optie bekleding = new Optie("Bekleding", "Uitbreding op de bekleding", 5000.0, false);
         Keuze bekleding1 = new Keuze("Hout interieur", "Het interieur wordt gestyled met hout", 5000.0, false, 1);
@@ -318,7 +333,7 @@ class Opties{
         bekleding.voegToe(bekleding1);
         bekleding.voegToe(bekleding2);
         bekleding.voegToe(bekleding3);
-        Optioneel.add(bekleding);
+        optioneel.add(bekleding);
 
         Optie personeel = new Optie("Personeel", "Keuze uit eigen personeel", 5000.0, false);
         Keuze pers1 = new Keuze("Basis personeel", "Een kapitein en 2 matrosen", 5000.0, false, 1);
@@ -327,7 +342,7 @@ class Opties{
         personeel.voegToe(pers1);
         personeel.voegToe(pers2);
         personeel.voegToe(pers3);
-        Optioneel.add(personeel);
+        optioneel.add(personeel);
     }
 
     public void nieuweOptie(){
@@ -357,10 +372,10 @@ class Opties{
                 Keuze nieuw1 = new Keuze(naam, omschrijving, prijs, isEssentieel, 1);
                 nieuw.voegToe(nieuw1);
                 if (nieuw.isEssentieel){
-                    Essentieel.add(nieuw);
+                    essentieel.add(nieuw);
                 }
                 else{
-                    Optioneel.add(nieuw);
+                    optioneel.add(nieuw);
                 }
             }
             else if(kies.equals("n")){
@@ -532,27 +547,38 @@ class Klant {
     }
 }
 
-class Korting {
-    ArrayList<Kortinglijst> kortingenLijst = new ArrayList<>();
+class Kortinglijst {
+    ArrayList<Korting> kortingenLijst = new ArrayList<>();
 
     public void maakKorting(){
-        Kortinglijst milieukorting1 = new Kortinglijst("Milieukorting", 0.9);
-        Kortinglijst bulkkorting1 = new Kortinglijst("Bulkkorting", 2000.0);
+        Korting milieukorting1 = new Korting("Milieukorting", 0.9);
+        Korting bulkkorting1 = new Korting("Bulkkorting", 2000.0);
+        Korting overheid1 = new Korting("Overheids korting", 1000.0);
+        Korting onderneming1 = new Korting("Ondernemings korting", 1500.0);
 
         kortingenLijst.add(milieukorting1);
         kortingenLijst.add(bulkkorting1);
+        kortingenLijst.add(overheid1);
+        kortingenLijst.add(onderneming1);
     }
 
-    public void checkKorting(Boot boot){
+    public void checkKorting(Boot boot, Klant klant){
         if (boot.opties.size() == 6){
             kortingenLijst.get(1).check = true;
         }
         if (boot.opties.get(0).prijs + boot.opties.get(1).prijs + boot.opties.get(2).prijs == 12150){
             kortingenLijst.get(0).check = true;
         }
+        if (klant.isOverheid()){
+            kortingenLijst.get(2).check = true;
+        }
+        if (klant.getKvkNummer() != 0){
+            kortingenLijst.get(3).check = true;
+        }
     }
+
 }
-class Kortinglijst {
+class Korting {
     protected String type;
     protected Double percentage;
     protected boolean check = false;
@@ -562,7 +588,7 @@ class Kortinglijst {
     public Double getPercentage() {
         return percentage;
     }
-    public Kortinglijst(String type, Double percentage) {
+    public Korting(String type, Double percentage) {
         this.type = type;
         this.percentage = percentage;
     }
@@ -572,7 +598,7 @@ public class main {
     public static void main(String[] args) {
 
         Offerte offerte = new Offerte();
-        Korting korting = new Korting();
+        Kortinglijst kortinglijst = new Kortinglijst();
 
         System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
 
@@ -636,11 +662,11 @@ public class main {
         botenlist.boten.get(keuze - 1).opties.addAll(gekozenOptioneel);
 
         offerte.setBoot(botenlist.boten.get(keuze - 1));
-        offerte.setKorting(korting);
-        korting.maakKorting();
-        korting.checkKorting(offerte.boot);
-
+        offerte.setKorting(kortinglijst);
+        kortinglijst.maakKorting();
         offerte.setKlant(klant);
+        kortinglijst.checkKorting(offerte.boot, offerte.klant);
+
         offerte.printOfferte();
     }
 }
