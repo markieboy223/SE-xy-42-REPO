@@ -45,11 +45,14 @@ class KortinglijstTest extends Kortinglijst {
 
     @Test
     public void testMaakKorting() {
+        // Arrange
         Kortinglijst kl = new Kortinglijst();
-        kl.maakKorting();
         ArrayList<Korting> kortingenLijst = kl.kortingenLijst;
 
+        //Act
+        kl.maakKorting();
 
+        // Assert
         Assertions.assertEquals(4, kortingenLijst.size());
         Assertions.assertEquals("Milieukorting", kortingenLijst.get(0).type);
         Assertions.assertEquals("Bulkkorting", kortingenLijst.get(1).type);
