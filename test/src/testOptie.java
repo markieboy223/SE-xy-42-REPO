@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 class testOptie{
     @Test
     public void testVoegToe() {
+        //Hier wordt gekeken of het toevoegen van de verschillende keuzes aan een optie correct wordt uitgevoerd.
+
         //arrange
         Optie optie = new Optie("Stuur", "Goud", 200.00, true);
         Keuze keuze1 = new Keuze("Stuur", "zilver", 150.00, true, 1);

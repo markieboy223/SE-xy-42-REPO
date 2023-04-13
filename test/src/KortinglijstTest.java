@@ -10,6 +10,8 @@ class KortinglijstTest extends Kortinglijst {
 
     @Test
     public void testMaakKorting() {
+        //Hier wordt gekeken of het aanmaken van de verschillende soorten korting correct wordt uitgevoerd.
+
         // Arrange
         Kortinglijst kl = new Kortinglijst();
         ArrayList<Korting> kortingenLijst = kl.kortingenLijst;

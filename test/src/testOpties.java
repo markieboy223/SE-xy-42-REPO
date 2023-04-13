@@ -3,9 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class testOpties {
@@ -163,16 +161,26 @@ public class testOpties {
 
     @Test
     public void testaanmakenOpties(){
+        //Hier wordt gekeken of het aanmaken van de verschillende opties goed verloopt en of de opties in de correcte lijst worden gezet.
+
         //Arrange
         Opties optie = new Opties();
         //Act
         optie.aanmakenOpties();
         //Assert
         assertEquals(3, optie.essentieel.size());
+        for (Optie optie1 : optie.essentieel){
+            assertTrue(optie1.isEssentieel);
+        }
         assertEquals(3, optie.optioneel.size());
+        for (Optie optie1 : optie.optioneel){
+            assertFalse(optie1.isEssentieel);
+        }
     }
     @Test
     public void testkiesOptieOptioneel(){
+        //Hier wordt gekeken of de optionele opties op een correcte manier worden opgeslagen in de correcte lijst.
+
         //Arrange
         testOpties optie = new testOpties();
         //Act
@@ -185,6 +193,8 @@ public class testOpties {
 
     @Test
     public void testkiesOptieEssentieel(){
+        //Hier wordt gekeken of de essentiële opties op een correcte manier worden opgeslagen in de correcte lijst.
+
         //Arrange
         testOpties optie = new testOpties();
         //Act
@@ -197,6 +207,8 @@ public class testOpties {
 
     @Test
     public void testNieuweOptie(){
+        //Hier wordt gekeken of het aanmaken van nieuwe opties correct werkt.
+
         //Arrange
         testOpties optie = new testOpties();
         testOpties optie1 = new testOpties();
