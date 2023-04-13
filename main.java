@@ -407,7 +407,7 @@ class Klant {
     private String adres = "";
     private int kvkNummer = 0;
     private boolean isOverheid = false;
-    public void klantNaam() {
+    public void klantOfferteGegevens() {
         Scanner scanner = new Scanner(System.in);
         int keuze = -1;
         while (keuze < 1 || keuze > 3) { // als er geen 1,2 of 3 wordt ingevuld blijft hij de vraag stellen
@@ -576,7 +576,7 @@ public class main {
         Kortinglijst kortinglijst = new Kortinglijst();
 
         Klant klant = new Klant();
-        klant.klantNaam();
+        klant.klantOfferteGegevens();
 
         //Boten
         Boot APMarine = new Plezierjacht("AP Marine", "Plezierjacht", 25000.00, 15.2, 4000, "prive");
