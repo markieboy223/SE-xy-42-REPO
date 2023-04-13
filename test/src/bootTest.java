@@ -22,12 +22,12 @@ public class bootTest {
     @Test
     public void testPrintBoot() {
         // Arrange
+        String verwacht = "Naam: Plezierjacht 1 Type: Plezierjacht Prijs: 50000.0 Euro Lengte: 8.0M Gewicht: 2000.0KG Bestemd: Familie-uitjes ";
         Plezierjacht pj = new Plezierjacht("Plezierjacht 1 ", "Plezierjacht ", 50000, 8, 2000, "Familie-uitjes ");
         // Act
         String boot = pj.printBoot();
 
         // Assert
-        String verwacht = "Naam: Plezierjacht 1 Type: Plezierjacht Prijs: 50000.0 Euro Lengte: 8.0M Gewicht: 2000.0KG Bestemd: Familie-uitjes ";
         Assertions.assertEquals(verwacht, boot);
     }
 }
