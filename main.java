@@ -105,7 +105,6 @@ class Offerte{
         }
     }
 }
-
 class Botenlist {
     ArrayList<Boot> boten = new ArrayList<>();
     public void printBotenLijst() {
@@ -116,7 +115,6 @@ class Botenlist {
         System.out.println();
     }
 }
-
 abstract class Boot {
     ArrayList <Optie> opties = new ArrayList<>();
     private String naam;
@@ -134,40 +132,17 @@ abstract class Boot {
     public String getNaam() {
         return naam;
     }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
     public String getType() {
         return type;
     }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public double getPrijs() {
         return prijs;
     }
-
-    public void setPrijs(double prijs) {
-        this.prijs = prijs;
-    }
-
     public double getLengte() {
         return lengte;
     }
-
-    public void setLengte(double lengte) {
-        this.lengte = lengte;
-    }
-
     public double getGewicht() {
         return gewicht;
-    }
-    public void setGewicht(double gewicht) {
-        this.gewicht = gewicht;
     }
     public int kiesBoot(){
         System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
@@ -340,7 +315,6 @@ class Opties{
         personeel.voegToe(pers1, pers2, pers3);
         optioneel.add(personeel);
     }
-
     public void nieuweOptie(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("U gaat nu een nieuwe optie toevoegen aan ShipFlex.");
@@ -395,18 +369,15 @@ class Opties{
                 System.out.println("Ongeldige invoer. Typ alleen 'j' of 'n'.");
             }
         }
-
     }
 }
-class Optie extends Opties{
-
+class Optie {
     protected ArrayList<Keuze> keuzes = new ArrayList<>();
     protected String naam;
     protected String omschrijving;
     protected double prijs;
-    protected Boolean isEssentieel;
-
-    public Optie(String naam, String omschrijving, double prijs, Boolean isEssentieel){
+    protected boolean isEssentieel;
+    public Optie(String naam, String omschrijving, double prijs, boolean isEssentieel){
         this.naam = naam;
         this.omschrijving = omschrijving;
         this.prijs = prijs;
@@ -420,11 +391,10 @@ class Optie extends Opties{
     public void voegToe2(Keuze keuze){
         keuzes.add(keuze);
     }
-
 }
 class Keuze extends Optie{
     protected int optie;
-    public Keuze(String naam, String omschrijving, double prijs, Boolean isEssentieel, int optie) {
+    public Keuze(String naam, String omschrijving, double prijs, boolean isEssentieel, int optie) {
         super(naam, omschrijving, prijs, isEssentieel);
         this.optie = optie;
     }
@@ -437,8 +407,6 @@ class Klant {
     private String adres = "";
     private int kvkNummer = 0;
     private boolean isOverheid = false;
-
-
     public void klantNaam() {
         Scanner scanner = new Scanner(System.in);
         int keuze = -1;
@@ -532,7 +500,7 @@ class Klant {
             }
             setKvkNummer(kvkNummer);
         } else if (keuze == 3) {
-            isOverheid = true;
+            setOverheid(true);
         }
     }
     public void setNaam(String naam) {
@@ -563,7 +531,6 @@ class Klant {
 
 class Kortinglijst {
     ArrayList<Korting> kortingenLijst = new ArrayList<>();
-
     public void maakKorting(){
         Korting milieukorting1 = new Korting("Milieukorting", 0.9);
         Korting bulkkorting1 = new Korting("Bulkkorting", 2000.0);
@@ -575,7 +542,6 @@ class Kortinglijst {
         kortingenLijst.add(overheid1);
         kortingenLijst.add(onderneming1);
     }
-
     public void checkKorting(Boot boot, Klant klant){
         if (boot.opties.size() == 6){
             kortingenLijst.get(1).check = true;
@@ -590,15 +556,11 @@ class Kortinglijst {
             kortingenLijst.get(3).check = true;
         }
     }
-
 }
 class Korting {
     protected String type;
     protected double percentage;
     protected boolean check = false;
-    public String getType() {
-        return type;
-    }
     public double getPercentage() {
         return percentage;
     }
@@ -607,7 +569,6 @@ class Korting {
         this.percentage = percentage;
     }
 }
-
 public class main {
     public static Opties opties = new Opties();
     public static void genereerOfferte(){
