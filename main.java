@@ -313,54 +313,42 @@ class Opties{
         Keuze stuur1 = new Keuze("Basis stuur", "Standaard stuur van aluminium", 150.0, true, 1);
         Keuze stuur2 = new Keuze("Eikenhout stuur", "Stuur van eikenhout", 210.0, false, 2);
         Keuze stuur3 = new Keuze("Eikenhout stuur met bladgoud", "Stuur van eikenhout versiert met bladgoud", 275.0, false, 3);
-        stuur.voegToe(stuur1);
-        stuur.voegToe(stuur2);
-        stuur.voegToe(stuur3);
+        stuur.voegToe(stuur1, stuur2, stuur3);
         essentieel.add(stuur);
 
         Optie motor = new Optie("Moter", "Standaard motor", 10000.0, true);
         Keuze motor1 = new Keuze("Basis Motor", "Standaard motor 500PK.", 10000.0, true, 1);
         Keuze motor2 = new Keuze("Motor 800PK", "Motor een vermogen van 800PK.", 15000.0, false, 2);
         Keuze motor3 = new Keuze("Motor 800PK met supercharger", "800PK motor met een supercharger.", 18750.0, false, 3);
-        motor.voegToe(motor1);
-        motor.voegToe(motor2);
-        motor.voegToe(motor3);
+        motor.voegToe(motor1, motor2, motor3);
         essentieel.add(motor);
 
         Optie reddingsboot = new Optie("Reddingsboot", "Standaard reddingsboot", 2000.0, true);
         Keuze redding1 = new Keuze("Basis reddingsboot", "Standaard reddingsboot met ruimte voor 5", 2000.0, true, 1);
         Keuze redding2 = new Keuze("Grotere reddingsboot", "Grotere reddingsboot met ruimte voor 10", 4000.0, false, 2);
         Keuze redding3 = new Keuze("Luxe reddingsboot", "Reddingsboot met ruimte voor 10, een minibar en audio installatie.", 10300.75, false, 3);
-        reddingsboot.voegToe(redding1);
-        reddingsboot.voegToe(redding2);
-        reddingsboot.voegToe(redding3);
+        reddingsboot.voegToe(redding1, redding2, redding3);
         essentieel.add(reddingsboot);
 
         Optie feestboot = new Optie("Party Boat", "Feestelijke toevoegingen", 5000.0, false);
         Keuze feest1 = new Keuze("Basis uitbreiding", "Upgrade aan het audio-systeem en RGB lampen", 5000.0, false, 1);
         Keuze feest2 = new Keuze("Medium uitbreiding", "Naast de toevoegingen van Optie 1 ook een uitgebreide bar en dansvloer", 10000.0, false, 2);
         Keuze feest3 = new Keuze("VIP uitbreiding", "Naast de toevoegingen van Opties 1&2 ook een helicopter pad voor makkelijke transport", 25000.0, false, 3);
-        feestboot.voegToe(feest1);
-        feestboot.voegToe(feest2);
-        feestboot.voegToe(feest3);
+        feestboot.voegToe(feest1, feest2, feest3);
         optioneel.add(feestboot);
 
         Optie bekleding = new Optie("Bekleding", "Uitbreding op de bekleding", 5000.0, false);
         Keuze bekleding1 = new Keuze("Hout interieur", "Het interieur wordt gestyled met hout", 5000.0, false, 1);
         Keuze bekleding2 = new Keuze("Zelfontworpen buitenkant", "Door de koper ontworpen buitenkant", 10000.0, false, 2);
         Keuze bekleding3 = new Keuze("Combi", "Een combinatie van Optie 1 en Optie 2", 15000.0, false, 3);
-        bekleding.voegToe(bekleding1);
-        bekleding.voegToe(bekleding2);
-        bekleding.voegToe(bekleding3);
+        bekleding.voegToe(bekleding1, bekleding2, bekleding3);
         optioneel.add(bekleding);
 
         Optie personeel = new Optie("Personeel", "Keuze uit eigen personeel", 5000.0, false);
         Keuze pers1 = new Keuze("Basis personeel", "Een kapitein en 2 matrosen", 5000.0, false, 1);
         Keuze pers2 = new Keuze("Keuken personeel", "Ook een chefkok met 2 hulpjes", 10000.0, false, 2);
         Keuze pers3 = new Keuze("VIP personeel", "Masseuses en etc.", 25000.0, false, 3);
-        personeel.voegToe(pers1);
-        personeel.voegToe(pers2);
-        personeel.voegToe(pers3);
+        personeel.voegToe(pers1, pers2, pers3);
         optioneel.add(personeel);
     }
 
@@ -389,7 +377,7 @@ class Opties{
                 kiesCorrect = true;
                 Optie nieuw = new Optie(naam, omschrijving, prijs, isEssentieel);
                 Keuze nieuw1 = new Keuze(naam, omschrijving, prijs, isEssentieel, 1);
-                nieuw.voegToe(nieuw1);
+                nieuw.voegToe2(nieuw1);
                 if (nieuw.isEssentieel){
                     essentieel.add(nieuw);
                 }
@@ -421,9 +409,15 @@ class Optie extends Opties{
         this.prijs = prijs;
         this.isEssentieel = isEssentieel;
     }
-    public void voegToe(Keuze keuze){
+    public void voegToe(Keuze keuze, Keuze keuze1, Keuze keuze2){
+        keuzes.add(keuze);
+        keuzes.add(keuze1);
+        keuzes.add(keuze2);
+    }
+    public void voegToe2(Keuze keuze){
         keuzes.add(keuze);
     }
+
 }
 class Keuze extends Optie{
     protected int optie;
