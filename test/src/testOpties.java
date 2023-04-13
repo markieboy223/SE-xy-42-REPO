@@ -59,9 +59,6 @@ public class testOpties {
     }
 
     public void nieuweOptie(boolean essentieel){
-        //Begin gemaakt aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
-
-        //Dit is een begin aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
         Scanner scanner = new Scanner(System.in);
         System.out.println("U gaat nu een nieuwe optie toevoegen aan ShipFlex.");
         System.out.println("Geef de naam van de nieuwe optie:");
@@ -180,8 +177,10 @@ public class testOpties {
         testOpties optie = new testOpties();
         //Act
         optie.aanmakenOpties();
+        ArrayList<Optie> test1 = new ArrayList<>(optie.kiesOptieOptioneel());
         //Assert
-        assertEquals(3, optie.kiesOptieOptioneel().size());
+        assertEquals(3, test1.size());
+        assertEquals("Basis uitbreiding", test1.get(0).naam);
     }
 
     @Test
@@ -190,8 +189,10 @@ public class testOpties {
         testOpties optie = new testOpties();
         //Act
         optie.aanmakenOpties();
+        ArrayList<Optie> test1 = new ArrayList<>(optie.kiesOptieEssentieel());
         //Assert
-        assertEquals(3, optie.kiesOptieEssentieel().size());
+        assertEquals(3, test1.size());
+        assertEquals("Basis stuur", test1.get(0).naam);
     }
 
     @Test

@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e289382-1910-479c-8e13-9305879bb1ef" name="Changes" comment="main verkleint om het programma opnieuw te kunnen runnen als de offerte niet correct is. en het netter maken van de main methode.">
-      <change afterPath="$PROJECT_DIR$/test/src/testOpties.java" afterDir="false" />
+    <list default="true" id="5e289382-1910-479c-8e13-9305879bb1ef" name="Changes" comment="tests voor de class Opties.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" afterDir="false" />
@@ -22,8 +19,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/src/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/src/testOpties.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/src/testOpties.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +67,7 @@
     "last_opened_file_path": "C:/Users/Misha/IdeaProjects/MyFirstTest"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.testOpties.testNieuweOptie">
+  <component name="RunManager" selected="JUnit.testOpties.testkiesOptieEssentieel">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="MAIN_CLASS_NAME" value="main" />
@@ -133,9 +129,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.testOpties.testNieuweOptie" />
-        <item itemvalue="JUnit.testOpties.testkiesOptieOptioneel" />
         <item itemvalue="JUnit.testOpties.testkiesOptieEssentieel" />
+        <item itemvalue="JUnit.testOpties.testkiesOptieOptioneel" />
+        <item itemvalue="JUnit.testOpties.testNieuweOptie" />
         <item itemvalue="JUnit.testOpties.testaanmakenOpties" />
         <item itemvalue="Application.main" />
       </list>
@@ -157,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680165842259</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="tests voor de class Opties.">
+      <created>1681387700393</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681387700393</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,7 +177,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
-    <option name="LAST_COMMIT_MESSAGE" value="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
+    <MESSAGE value="tests voor de class Opties." />
+    <option name="LAST_COMMIT_MESSAGE" value="tests voor de class Opties." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
