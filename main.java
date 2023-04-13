@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 class Offerte{
     protected Klant klant;
     private Kortinglijst kortinglijst;
@@ -20,10 +19,7 @@ class Offerte{
     }
 
     public void printOfferte() {
-        boolean milieukorting = false;
-        boolean bulkkorting = false;
-        boolean overheid = false;
-        boolean onderneming = false;
+        boolean korting1 = false;
 
         System.out.println("Offerte voor: " + boot.getType() + ", " + boot.getNaam());
         System.out.println("Naam klant: " + klant.getNaam());
@@ -62,28 +58,20 @@ class Offerte{
 
         System.out.println();
         System.out.println("De volgende kortingen zijn toegepast:");
-        if (kortinglijst.kortingenLijst.get(0).check){
-            System.out.println("10% milieukorting");
-            milieukorting = true;
-        }
-        if (kortinglijst.kortingenLijst.get(1).check){
-            System.out.println("€2000 bulkkorting");
-            bulkkorting = true;
-        }
-        if (kortinglijst.kortingenLijst.get(2).check){
-            System.out.println("€1000 overheidskorting");
-            overheid = true;
-        }
-        if (kortinglijst.kortingenLijst.get(3).check){
-            System.out.println("€1000 ondernemingskorting");
-            onderneming = true;
+
+        int teller = 0;
+        for (Korting korting : kortinglijst.kortingenLijst) {
+            if (korting.check){
+                korting1 = true;
+                System.out.println(korting.type);
+            }
         }
         System.out.println();
         double totaal = boot.getPrijs();
         for (Optie optie : boot.opties){
             totaal = totaal + optie.prijs;
         }
-        if ((!milieukorting && !bulkkorting && !overheid && !onderneming)) {
+        if ((!korting1)) {
             System.out.println("De totaalprijs is: €" + totaal);
         }
         else{
@@ -100,6 +88,24 @@ class Offerte{
                 }
             }
             System.out.println("De totaalprijs na het toepassen van de korting is: €" + totaal);
+        }
+        System.out.println("Is de offerte correct ingevuld? type 'j' als dit het geval is en 'n' als u nog aanpassingen wilt maken.");
+        Scanner scanner = new Scanner(System.in);
+        boolean kiesCorrect = false;
+        String kies = "";
+        while (!kiesCorrect) {
+            kies = scanner.next();
+            if (kies.equals("n")) {
+                kiesCorrect = true;
+                main.genereerOfferte();
+            }
+            else if(kies.equals("j")){
+                kiesCorrect = true;
+                System.out.println("Dank voor het gebruiken van Shipflex.");
+            }
+            else {
+                System.out.println("Ongeldige invoer. Typ alleen 'j' of 'n'.");
+            }
         }
     }
 }
@@ -610,32 +616,11 @@ class Korting {
 }
 
 public class main {
-    public static void main(String[] args) {
 
+    public static void genereerOfferte(){
         Offerte offerte = new Offerte();
         Kortinglijst kortinglijst = new Kortinglijst();
-
-        System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
-
         Opties opties = new Opties();
-
-        System.out.println("Als u een offerte wilt aanmaken, type 'j'. Als u een nieuwe optie wilt toevoegen type 'n'.");
-        Scanner scanner1 = new Scanner(System.in);
-        boolean kiesCorrect = false;
-        String kies = "";
-        while (!kiesCorrect) {
-            kies = scanner1.next();
-            if (kies.equals("n")) {
-                kiesCorrect = true;
-                opties.nieuweOptie();
-            }
-            else if (kies.equals("j")){
-                kiesCorrect = true;
-            }
-            else {
-                System.out.println("Ongeldige invoer. Typ alleen 'j' of 'n'.");
-            }
-        }
 
         Klant klant = new Klant();
         klant.klantNaam();
@@ -652,6 +637,7 @@ public class main {
         botenlist.boten.add(Zeilbootje);
         botenlist.printBotenLijst();
 
+        offerte.setBoot(APMarine);
         int keuze = offerte.boot.kiesBoot();
 
         opties.aanmakenOpties();
@@ -669,5 +655,31 @@ public class main {
         kortinglijst.checkKorting(offerte.boot, offerte.klant);
 
         offerte.printOfferte();
+    }
+
+    public static void maakNieuweOptie(){
+        Opties opties = new Opties();
+        opties.nieuweOptie();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Welkom bij ShipFlex, wat wilt u doen?");
+        System.out.println("Als u een offerte wilt aanmaken, type 'j'. Als u een nieuwe optie wilt toevoegen type 'n'.");
+
+        boolean kiesCorrect = false;
+        String kies = "";
+        while (!kiesCorrect) {
+            kies = scanner1.next();
+            if (kies.equals("n")) {
+                kiesCorrect = true;
+                maakNieuweOptie();
+            } else if (kies.equals("j")) {
+                kiesCorrect = true;
+                genereerOfferte();
+            } else {
+                System.out.println("Ongeldige invoer. Typ alleen 'j' of 'n'.");
+            }
+        }
     }
 }
