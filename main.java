@@ -169,6 +169,25 @@ abstract class Boot {
         this.gewicht = gewicht;
     }
 
+    public int kiesBoot(){
+        System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
+        Scanner scanner = new Scanner(System.in);
+        int keuze = -1;
+        while (keuze < 1 || keuze > 3) { // blijft de vraag stellen totdat een geldige keuze wordt ingevoerd
+            if (scanner.hasNextInt()) { // controleert of een integer wordt ingevoerd
+                keuze = scanner.nextInt();
+                if (keuze < 1 || keuze > 3) { // als de keuze ongeldig is
+                    System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
+                }
+            } else { // als de invoer geen integer is
+                System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
+                scanner.next(); // verwijder de ongeldige invoer uit de scanner
+            }
+        }
+        return keuze;
+
+    }
+
     public Boot(String naam, String type, double prijs, double lengte, double gewicht) {
         this.naam = naam;
         this.type = type;
@@ -637,21 +656,7 @@ public class main {
         botenlist.boten.add(Zeilbootje);
         botenlist.printBotenLijst();
 
-        // Boot kiezen met klant
-        System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
-        Scanner scanner = new Scanner(System.in);
-        int keuze = -1;
-        while (keuze < 1 || keuze > 3) { // blijft de vraag stellen totdat een geldige keuze wordt ingevoerd
-            if (scanner.hasNextInt()) { // controleert of een integer wordt ingevoerd
-                keuze = scanner.nextInt();
-                if (keuze < 1 || keuze > 3) { // als de keuze ongeldig is
-                    System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
-                }
-            } else { // als de invoer geen integer is
-                System.out.println("Ongeldige invoer. Voer een geldig getal in (1, 2 of 3).");
-                scanner.next(); // verwijder de ongeldige invoer uit de scanner
-            }
-        }
+        int keuze = offerte.boot.kiesBoot();
 
         opties.aanmakenOpties();
 
