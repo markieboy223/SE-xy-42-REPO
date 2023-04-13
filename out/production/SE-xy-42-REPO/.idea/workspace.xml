@@ -4,20 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89848b26-d923-47ee-aa06-046527833f39" name="Changes" comment="Korting class en Kortinglijst class werkend gemaakt.">
+    <list default="true" id="215fcea3-598f-4c69-8599-08836a9c31ea" name="Changes" comment="Misha!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Klant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Klant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Korting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Korting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Kortinglijst.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Kortinglijst.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Offerte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Offerte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Optie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Optie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Opties.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Opties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="main" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="misha" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,7 +50,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/bartv/IdeaProjects/HabanaERP&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Misha/IdeaProjects/MyFirstTest&quot;
   }
 }</component>
   <component name="RunManager">
@@ -62,13 +77,16 @@
       <list>
         <item itemvalue="Application.main" />
         <item itemvalue="Application.main" />
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="89848b26-d923-47ee-aa06-046527833f39" name="Changes" comment="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
+      <changelist id="215fcea3-598f-4c69-8599-08836a9c31ea" name="Changes" comment="Misha!" />
       <created>1678959983434</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -81,14 +99,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680165842259</updated>
     </task>
-    <task id="LOCAL-00002" summary="Korting class en Kortinglijst class werkend gemaakt.">
-      <created>1680170535833</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1680170535833</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,8 +116,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
-    <MESSAGE value="Korting class en Kortinglijst class werkend gemaakt." />
-    <option name="LAST_COMMIT_MESSAGE" value="Korting class en Kortinglijst class werkend gemaakt." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
