@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 class Offerte{
     protected Klant klant;
     private Kortinglijst kortinglijst;
@@ -9,15 +8,12 @@ class Offerte{
     public void setKlant(Klant klant) {
         this.klant = klant;
     }
-
     public void setKorting(Kortinglijst kortinglijst) {
         this.kortinglijst = kortinglijst;
     }
-
     public void setBoot(Boot boot) {
         this.boot = boot;
     }
-
     public void printOfferte() {
         boolean korting1 = false;
 
@@ -28,7 +24,7 @@ class Offerte{
             System.out.println("kvk nummer: " + klant.getKvkNummer());
         }
         if (klant.isOverheid()) {
-            System.out.println("Overheids instanttie: ja");
+            System.out.println("Overheids instantie: ja");
         }
         System.out.println();
         System.out.println("Basis prijs van " + boot.getNaam() + ": " + boot.getPrijs());
@@ -193,7 +189,6 @@ abstract class Boot {
             }
         }
         return keuze;
-
     }
 
     public Boot(String naam, String type, double prijs, double lengte, double gewicht) {
@@ -339,7 +334,7 @@ class Opties{
         essentieel.add(reddingsboot);
 
         Optie feestboot = new Optie("Party Boat", "Feestelijke toevoegingen", 5000.0, false);
-        Keuze feest1 = new Keuze("Basis uitbreiding", "Upgrade aan het audio-systeem en RGB lampen", 5000.0, false, 1);
+        Keuze feest1 = new Keuze("Basis Party Boat", "Upgrade aan het audio-systeem en RGB lampen", 5000.0, false, 1);
         Keuze feest2 = new Keuze("Medium uitbreiding", "Naast de toevoegingen van Optie 1 ook een uitgebreide bar en dansvloer", 10000.0, false, 2);
         Keuze feest3 = new Keuze("VIP uitbreiding", "Naast de toevoegingen van Opties 1&2 ook een helicopter pad voor makkelijke transport", 25000.0, false, 3);
         feestboot.voegToe(feest1, feest2, feest3);
@@ -361,18 +356,31 @@ class Opties{
     }
 
     public void nieuweOptie(){
-        //Begin gemaakt aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
-
-        //Dit is een begin aan het mogelijk maken voor de gebruiker om nieuwe opties toe te voegen.
         Scanner scanner = new Scanner(System.in);
         System.out.println("U gaat nu een nieuwe optie toevoegen aan ShipFlex.");
         System.out.println("Geef de naam van de nieuwe optie:");
+        while (!scanner.hasNextLine()){
+            System.out.println("U moet tekst invoeren.");
+            scanner.next();
+        }
         String naam = scanner.nextLine();
         System.out.println("Geef een omschrijving van de nieuwe optie:");
+        while (!scanner.hasNextLine()){
+            System.out.println("U moet tekst invoeren.");
+            scanner.next();
+        }
         String omschrijving = scanner.nextLine();
         System.out.println("Geef de begin prijs van de nieuwe optie");
+        while (!scanner.hasNextDouble()){
+            System.out.println("U moet een getal invullen.");
+            scanner.next();
+        }
         double prijs = scanner.nextDouble();
         System.out.println("Is de nieuwe optie essentieel? geef 'true' als antwoord is het geval van wel, geef 'false' als het niet zo is.");
+        while (!scanner.hasNextBoolean()){
+            System.out.println("U moet 'true' of 'false' invoeren.'");
+            scanner.next();
+        }
         boolean isEssentieel = scanner.nextBoolean();
         System.out.println("Is dit de optie die u wilt toevoegen?:");
         System.out.println("Naam: " + naam + " omschrijving: " + omschrijving + " prijs: " + prijs + " essentieel of niet: " + isEssentieel);
@@ -392,6 +400,7 @@ class Opties{
                 else{
                     optioneel.add(nieuw);
                 }
+                main.genereerOfferte();
             }
             else if(kies.equals("n")){
                 nieuweOptie();
@@ -437,7 +446,6 @@ class Keuze extends Optie{
 
 class Klant {
     private String voornaam = "";
-
     private String achternaam = "";
     private String naam = "";
     private String adres = "";
@@ -540,7 +548,6 @@ class Klant {
         } else if (keuze == 3) {
             isOverheid = true;
         }
-
     }
     public void setNaam(String naam) {
         this.naam = naam;
@@ -616,11 +623,10 @@ class Korting {
 }
 
 public class main {
-
+    public static Opties opties = new Opties();
     public static void genereerOfferte(){
         Offerte offerte = new Offerte();
         Kortinglijst kortinglijst = new Kortinglijst();
-        Opties opties = new Opties();
 
         Klant klant = new Klant();
         klant.klantNaam();
@@ -658,7 +664,6 @@ public class main {
     }
 
     public static void maakNieuweOptie(){
-        Opties opties = new Opties();
         opties.nieuweOptie();
     }
 
