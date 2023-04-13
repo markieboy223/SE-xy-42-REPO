@@ -124,7 +124,13 @@ abstract class Boot {
     private double prijs;
     private double lengte;
     private double gewicht;
-
+    public Boot(String naam, String type, double prijs, double lengte, double gewicht) {
+        this.naam = naam;
+        this.type = type;
+        this.prijs = prijs;
+        this.lengte = lengte;
+        this.gewicht = gewicht;
+    }
     public String getNaam() {
         return naam;
     }
@@ -160,11 +166,9 @@ abstract class Boot {
     public double getGewicht() {
         return gewicht;
     }
-
     public void setGewicht(double gewicht) {
         this.gewicht = gewicht;
     }
-
     public int kiesBoot(){
         System.out.println("Welke boot is gekozen? Type '1' voor APMarine, '2' voor Quiness en '3' voor Zeilbootje.");
         Scanner scanner = new Scanner(System.in);
@@ -181,14 +185,6 @@ abstract class Boot {
             }
         }
         return keuze;
-    }
-
-    public Boot(String naam, String type, double prijs, double lengte, double gewicht) {
-        this.naam = naam;
-        this.type = type;
-        this.prijs = prijs;
-        this.lengte = lengte;
-        this.gewicht = gewicht;
     }
     abstract String printBoot();
 }
