@@ -4,11 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69ddeb31-db2f-4e88-855c-71bdf757b028" name="Changes" comment="" />
+    <list default="true" id="5e289382-1910-479c-8e13-9305879bb1ef" name="Changes" comment="main verkleint om het programma opnieuw te kunnen runnen als de offerte niet correct is. en het netter maken van de main methode.">
+      <change afterPath="$PROJECT_DIR$/test/src/testOpties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Klant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Klant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Korting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Korting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Kortinglijst.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Kortinglijst.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Offerte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Offerte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Optie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Optie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Opties.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Opties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test/test.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="main" />
@@ -21,6 +48,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -30,18 +60,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Misha/IdeaProjects/MyFirstTest&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Misha/IdeaProjects/MyFirstTest"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="JUnit.testOpties.testNieuweOptie">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="SE-xy-42-REPO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testOpties.testNieuweOptie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testOpties" />
+      <option name="METHOD_NAME" value="testNieuweOptie" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testOpties.testaanmakenOpties" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testOpties" />
+      <option name="METHOD_NAME" value="testaanmakenOpties" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testOpties.testkiesOptieEssentieel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testOpties" />
+      <option name="METHOD_NAME" value="testkiesOptieEssentieel" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testOpties.testkiesOptieOptioneel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testOpties" />
+      <option name="METHOD_NAME" value="testkiesOptieOptioneel" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -59,10 +133,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main" />
-        <item itemvalue="Application.main" />
-        <item itemvalue="Application.main" />
-        <item itemvalue="Application.main" />
+        <item itemvalue="JUnit.testOpties.testNieuweOptie" />
+        <item itemvalue="JUnit.testOpties.testkiesOptieOptioneel" />
+        <item itemvalue="JUnit.testOpties.testkiesOptieEssentieel" />
+        <item itemvalue="JUnit.testOpties.testaanmakenOpties" />
         <item itemvalue="Application.main" />
       </list>
     </recent_temporary>

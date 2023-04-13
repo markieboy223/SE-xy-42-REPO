@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69ddeb31-db2f-4e88-855c-71bdf757b028" name="Changes" comment="">
+    <list default="true" id="5e289382-1910-479c-8e13-9305879bb1ef" name="Changes" comment="main verkleint om het programma opnieuw te kunnen runnen als de offerte niet correct is. en het netter maken van de main methode.">
       <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +19,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Rayen" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -33,18 +36,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Misha/IdeaProjects/MyFirstTest&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Misha/IdeaProjects/MyFirstTest"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="JUnit.testOpties.testaanmakenOpties">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="SE-xy-42-REPO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testOpties.testaanmakenOpties" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testOpties" />
+      <option name="METHOD_NAME" value="testaanmakenOpties" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -62,6 +79,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testOpties.testaanmakenOpties" />
         <item itemvalue="Application.main" />
         <item itemvalue="Application.main" />
         <item itemvalue="Application.main" />

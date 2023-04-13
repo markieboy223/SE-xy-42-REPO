@@ -193,7 +193,6 @@ abstract class Boot {
             }
         }
         return keuze;
-
     }
 
     public Boot(String naam, String type, double prijs, double lengte, double gewicht) {
@@ -437,7 +436,6 @@ class Keuze extends Optie{
 
 class Klant {
     private String voornaam = "";
-
     private String achternaam = "";
     private String naam = "";
     private String adres = "";
