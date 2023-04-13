@@ -247,7 +247,7 @@ class Opties{
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
             int check2 = optie.keuzes.size();
             for (int i = 0; i < optie.keuzes.size(); i++){
-                System.out.println("Optie " + (i + 1) + ": " + optie.keuzes.get(i).omschrijving);
+                System.out.println("Optie " + (i + 1) + ": " + optie.keuzes.get(i).omschrijving + " €" + optie.keuzes.get(i).prijs);
             }
             System.out.println();
             System.out.println("Als u voor de volgende " + check2 + " opties de basis uitvoering kiest (optie 1) krijgt u 10% korting op de totaalprijs.");
@@ -283,7 +283,7 @@ class Opties{
             System.out.println("Welk type " + optie.naam + " wilt u toevoegen?");
             int check1 = optie.keuzes.size();
             for (int i = 0; i < optie.keuzes.size(); i++){
-                System.out.println("Optie " + (i + 1) + ": " + optie.keuzes.get(i).omschrijving);
+                System.out.println("Optie " + (i + 1) + ": " + optie.keuzes.get(i).omschrijving + " €" + optie.keuzes.get(i).prijs);
             }
             System.out.println("Type '0' als u niks wilt toevoegen, type '1' voor Optie 1, '2' voor Optie 2 en '3' voor Optie 3.");
 
@@ -604,7 +604,6 @@ class Kortinglijst {
             kortingenLijst.get(3).check = true;
         }
     }
-
 }
 class Korting {
     protected String type;
