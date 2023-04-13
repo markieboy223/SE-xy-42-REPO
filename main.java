@@ -331,13 +331,11 @@ class Opties{
     }
 }
 class Optie extends Opties{
-
     protected ArrayList<Keuze> keuzes = new ArrayList<>();
     protected String naam;
     protected String omschrijving;
     protected Double prijs;
     protected Boolean isEssentieel;
-
     public Optie(String naam, String omschrijving, Double prijs, Boolean isEssentieel){
         this.naam = naam;
         this.omschrijving = omschrijving;
@@ -358,13 +356,11 @@ class Keuze extends Optie{
 
 class Klant {
     private String voornaam = "";
-
     private String achternaam = "";
     private String naam = "";
     private String adres = "";
     private int kvkNummer = 0;
     private boolean isOverheid = false;
-
 
     public void klantNaam() {
         Scanner scanner = new Scanner(System.in);
@@ -398,7 +394,6 @@ class Klant {
                 if (naam.length() <= 20) {
                     waar1 = true;
                 }
-
             }
             System.out.println("Is dit uw naam " + naam);
             String kies = "";
@@ -446,10 +441,7 @@ class Klant {
                 adreswaar = true;
             }
         }
-
-        if (keuze == 1) {
-
-        } else if (keuze == 2) { //
+       if (keuze == 2) { //
             System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
             int kvkNummer = scanner.nextInt();
             int aantalCijfers = 8;
@@ -461,7 +453,6 @@ class Klant {
         } else if (keuze == 3) {
             isOverheid = true;
         }
-
     }
     public void setNaam(String naam) {
         this.naam = naam;
@@ -488,10 +479,8 @@ class Klant {
         this.kvkNummer = kvkNummer;
     }
 }
-
 class Korting {
     ArrayList<Kortinglijst> kortingenLijst = new ArrayList<>();
-
     public void maakKorting(){
         Kortinglijst milieukorting1 = new Kortinglijst("Milieukorting", 0.9);
         Kortinglijst bulkkorting1 = new Kortinglijst("Bulkkorting", 2000.0);
@@ -499,7 +488,6 @@ class Korting {
         kortingenLijst.add(milieukorting1);
         kortingenLijst.add(bulkkorting1);
     }
-
     public void checkKorting(Boot boot){
         if (boot.opties.size() == 6){
             kortingenLijst.get(1).check = true;
