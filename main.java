@@ -55,7 +55,6 @@ class Offerte{
         System.out.println();
         System.out.println("De volgende kortingen zijn toegepast:");
 
-        int teller = 0;
         for (Korting korting : kortinglijst.kortingenLijst) {
             if (korting.check){
                 korting1 = true;
@@ -108,7 +107,7 @@ class Offerte{
 class Botenlist {
     ArrayList<Boot> boten = new ArrayList<>();
     public void printBotenLijst() {
-        System.out.println("Ons assortiment aan boten waaruit u als klant kunt kiezen: ");
+        System.out.println("Ons assortiment aan boten waaruit de klant kan kiezen: ");
         for (Boot b : boten) {
             System.out.println(b.printBoot());
         }
@@ -430,9 +429,9 @@ class Klant {
 
         while (!naamwaar) {
             boolean waar1 = false;
-            System.out.println("Geef uw voornaam:");
+            System.out.println("Geef de voornaam van de klant:");
             voornaam = scanner.next();
-            System.out.println("Geef uw achternaam");
+            System.out.println("Geef de achternaam van de klant");
             achternaam = scanner.next();
             while (!waar1) {
                 naam = voornaam + " " + achternaam;
@@ -441,7 +440,7 @@ class Klant {
                 }
 
             }
-            System.out.println("Is dit uw naam " + naam);
+            System.out.println("Is dit de correcte naam: " + naam);
             String kies = "";
             boolean kiesCorrect = false;
             while (!kiesCorrect) {
@@ -461,7 +460,7 @@ class Klant {
         boolean adreswaar = false;
 
         while (!adreswaar) {
-            System.out.println("Geef uw adres:");
+            System.out.println("Geef het adres van de klant:");
             adres = scanner.nextLine();
             scanner.next();
             boolean waar1 = false;
@@ -470,7 +469,7 @@ class Klant {
                     waar1 = true;
                 }
             }
-            System.out.println("Is dit uw adres " + adres);
+            System.out.println("Is dit het adres: " + adres);
             String kies = "";
             boolean kiesCorrect = false;
             while (!kiesCorrect) {
@@ -491,11 +490,11 @@ class Klant {
         if (keuze == 1) {
 
         } else if (keuze == 2) { //
-            System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
+            System.out.println("Geef het kvkNummer (*8 cijfers vereist)");
             int kvkNummer = scanner.nextInt();
             int aantalCijfers = 8;
             while (String.valueOf(kvkNummer).length() != aantalCijfers) { // hier checkt de while loop of het kvkNummer 8 cijfers heeft of niet
-                System.out.println("Geef uw kvkNummer (*8 cijfers vereist)");
+                System.out.println("Geef het kvkNummer (*8 cijfers vereist)");
                 kvkNummer = scanner.nextInt();
             }
             setKvkNummer(kvkNummer);
