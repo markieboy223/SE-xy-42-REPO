@@ -119,14 +119,6 @@ class Botenlist {
             System.out.println();
         }
     }
-    public void berekening() {
-        double totaleprijs =0;
-        for (Boot b : boten) {
-            totaleprijs += b.getPrijs();
-        }
-        System.out.println("Dit is uw totale prijs: € "+ totaleprijs);
-        System.out.println();
-    }
 }
 
 abstract class Boot {
