@@ -412,18 +412,11 @@ class Klant {
                 naamwaar = true;
             }
         }
+        scanner.nextLine();
         boolean adreswaar = false;
-
         while (!adreswaar) {
             System.out.println("Geef uw adres:");
             adres = scanner.nextLine();
-            scanner.next();
-            boolean waar1 = false;
-            while (!waar1) {
-                if (adres.length() <= 20) {
-                    waar1 = true;
-                }
-            }
             System.out.println("Is dit uw adres " + adres);
             String kies = "";
             boolean kiesCorrect = false;
