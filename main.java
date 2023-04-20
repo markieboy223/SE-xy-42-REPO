@@ -178,8 +178,8 @@ class Plezierjacht extends Boot {
     @Override
     public String printBoot(){
         return "Naam: " + getNaam() +
-                "Type: " + getType() +
-                "Prijs: " + getPrijs() + " Euro " +
+                " Type: " + getType() +
+                " Prijs: " + getPrijs() + " Euro " +
                 "Lengte: " + getLengte() + "M " +
                 "Gewicht: " + getGewicht() + "KG " +
                 "Bestemd: " + bestemd;
@@ -580,7 +580,7 @@ public class main {
         //Boten
         Boot APMarine = new Plezierjacht("AP Marine", "Plezierjacht", 25000.00, 15.2, 4000, "prive");
         Boot Quinness = new Plezierjacht("Quinness 2", "Plezier jacht", 50000.00, 20.5, 5000, "pleziervaart");
-        Boot Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", 30000.00, 15.2, 4000, "zeil");
+        Boot Zeilbootje = new Zeiljacht("AP SEA", "Zeiljacht", 30000.00, 15.2, 4000, "grootzeil");
 
         //BotenList
         Botenlist botenlist = new Botenlist();
