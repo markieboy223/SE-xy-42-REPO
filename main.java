@@ -17,6 +17,7 @@ class Offerte{
     public void printOfferte() {
         boolean korting1 = false;
 
+        System.out.println("=======================================Offerte==================================================");
         System.out.println("Offerte voor: " + boot.getType() + ", " + boot.getNaam());
         System.out.println("Naam klant: " + klant.getNaam());
         System.out.println("Adres: " + klant.getAdres());
@@ -27,7 +28,10 @@ class Offerte{
             System.out.println("Overheids instantie: ja");
         }
         System.out.println();
-        System.out.println("Basis prijs van " + boot.getNaam() + ": " + boot.getPrijs());
+        System.out.println("=======================================Gekozen Boot=============================================");
+        System.out.println("Gekozen Boot: " + boot.getNaam());
+        System.out.println("Prijs exclusief korting: " + boot.getPrijs());
+        System.out.println("=======================================Essentiele opties========================================");
         //for loop essentiële opties
         int check3 = 0;
         if (boot.opties.size() > 0) {
@@ -41,6 +45,7 @@ class Offerte{
                 System.out.println("Optie " + (i + 1) + ": " + boot.opties.get(i).naam + ", €" + boot.opties.get(i).prijs);
             }
         }
+        System.out.println("=======================================Optionele opties=========================================");
         //optionele opties
         if (boot.opties.size() - check3 > 0) {
             System.out.println();
@@ -53,6 +58,7 @@ class Offerte{
         }
 
         System.out.println();
+        System.out.println("=======================================Kortingen===============================================");
         System.out.println("De volgende kortingen zijn toegepast:");
 
         for (Korting korting : kortinglijst.kortingenLijst) {
@@ -62,6 +68,7 @@ class Offerte{
             }
         }
         System.out.println();
+        System.out.println("=======================================Eindtotalen=============================================");
         double totaal = boot.getPrijs();
         for (Optie optie : boot.opties){
             totaal = totaal + optie.prijs;
@@ -457,19 +464,12 @@ class Klant {
                 naamwaar = true;
             }
         }
+        scanner.nextLine();
         boolean adreswaar = false;
-
         while (!adreswaar) {
-            System.out.println("Geef het adres van de klant:");
+            System.out.println("Geef uw adres:");
             adres = scanner.nextLine();
-            scanner.next();
-            boolean waar1 = false;
-            while (!waar1) {
-                if (adres.length() <= 20) {
-                    waar1 = true;
-                }
-            }
-            System.out.println("Is dit het adres: " + adres);
+            System.out.println("Is dit uw adres " + adres);
             String kies = "";
             boolean kiesCorrect = false;
             while (!kiesCorrect) {
