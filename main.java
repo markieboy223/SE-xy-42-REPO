@@ -62,10 +62,15 @@ class Offerte{
         System.out.println("De volgende kortingen zijn toegepast:");
 
         for (Korting korting : kortinglijst.kortingenLijst) {
-            if (korting.check){
+            if (korting.check) {
                 korting1 = true;
-                System.out.println(korting.type);
+                if (korting.getPercentage() > 2) {
+                    System.out.println(korting.type + ": €" + korting.getPercentage());
+                } else {
+                    System.out.println(korting.type + ": " + Math.round((1 - korting.getPercentage()) * 100) + "%");
+                }
             }
+
         }
         System.out.println();
         System.out.println("=======================================Eindtotalen=============================================");
@@ -281,22 +286,22 @@ class Opties{
         //Hier worden de verschillende essentiële en optionele opties aangemaakt.
         Optie stuur = new Optie("Stuur", "Standaard stuur", 150.0, true);
         Keuze stuur1 = new Keuze("Basis stuur", "Standaard stuur van aluminium", 150.0, true, 1);
-        Keuze stuur2 = new Keuze("Eikenhout stuur", "Stuur van eikenhout", 210.0, false, 2);
-        Keuze stuur3 = new Keuze("Eikenhout stuur met bladgoud", "Stuur van eikenhout versiert met bladgoud", 275.0, false, 3);
+        Keuze stuur2 = new Keuze("Eikenhout stuur", "Stuur van eikenhout", 210.0, true, 2);
+        Keuze stuur3 = new Keuze("Eikenhout stuur met bladgoud", "Stuur van eikenhout versiert met bladgoud", 275.0, true, 3);
         stuur.voegToe(stuur1, stuur2, stuur3);
         essentieel.add(stuur);
 
         Optie motor = new Optie("Moter", "Standaard motor", 10000.0, true);
         Keuze motor1 = new Keuze("Basis Motor", "Standaard motor 500PK.", 10000.0, true, 1);
-        Keuze motor2 = new Keuze("Motor 800PK", "Motor een vermogen van 800PK.", 15000.0, false, 2);
-        Keuze motor3 = new Keuze("Motor 800PK met supercharger", "800PK motor met een supercharger.", 18750.0, false, 3);
+        Keuze motor2 = new Keuze("Motor 800PK", "Motor een vermogen van 800PK.", 15000.0, true, 2);
+        Keuze motor3 = new Keuze("Motor 800PK met supercharger", "800PK motor met een supercharger.", 18750.0, true, 3);
         motor.voegToe(motor1, motor2, motor3);
         essentieel.add(motor);
 
         Optie reddingsboot = new Optie("Reddingsboot", "Standaard reddingsboot", 2000.0, true);
         Keuze redding1 = new Keuze("Basis reddingsboot", "Standaard reddingsboot met ruimte voor 5", 2000.0, true, 1);
-        Keuze redding2 = new Keuze("Grotere reddingsboot", "Grotere reddingsboot met ruimte voor 10", 4000.0, false, 2);
-        Keuze redding3 = new Keuze("Luxe reddingsboot", "Reddingsboot met ruimte voor 10, een minibar en audio installatie.", 10300.75, false, 3);
+        Keuze redding2 = new Keuze("Grotere reddingsboot", "Grotere reddingsboot met ruimte voor 10", 4000.0, true, 2);
+        Keuze redding3 = new Keuze("Luxe reddingsboot", "Reddingsboot met ruimte voor 10, een minibar en audio installatie.", 10300.75, true, 3);
         reddingsboot.voegToe(redding1, redding2, redding3);
         essentieel.add(reddingsboot);
 
@@ -487,9 +492,7 @@ class Klant {
             }
         }
 
-        if (keuze == 1) {
-
-        } else if (keuze == 2) { //
+        if (keuze == 2) {
             System.out.println("Geef het kvkNummer (*8 cijfers vereist)");
             int kvkNummer = scanner.nextInt();
             int aantalCijfers = 8;
@@ -498,7 +501,8 @@ class Klant {
                 kvkNummer = scanner.nextInt();
             }
             setKvkNummer(kvkNummer);
-        } else if (keuze == 3) {
+        }
+        else if (keuze == 3) {
             setOverheid(true);
         }
     }
