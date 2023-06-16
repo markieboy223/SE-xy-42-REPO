@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca4e6061-0a99-40c7-8c26-639cccbc561f" name="Changes" comment="" />
+    <list default="true" id="ca4e6061-0a99-40c7-8c26-639cccbc561f" name="Changes" comment="Rayen class botenList toegevoegd, en class Offerte toegevoegd.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Boot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Botenlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Keuze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Klant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Klant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Korting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Korting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Kortinglijst.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Kortinglijst.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Offerte.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Offerte.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Optie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Optie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Opties.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Opties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Plezierjacht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/Zeiljacht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SE-xy-42-REPO/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/Korting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/Kortinglijst.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/KortinglijstTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/KortinglijstTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/bootTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/bootTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/classpath.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/testOptie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/testOptie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/test/testOpties.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/test/testOpties.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,31 +65,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Misha/IdeaProjects/MyFirstTest&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Misha/IdeaProjects/MyFirstTest",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.KortinglijstTest">
+}]]></component>
+  <component name="RunManager" selected="JUnit.bootTest">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="17" />
       <option name="MAIN_CLASS_NAME" value="main" />
       <module name="SE-xy-42-REPO" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KortingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="KortingTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -78,12 +98,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KortinglijstTest.testMaakKorting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="bootTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="KortinglijstTest" />
-      <option name="METHOD_NAME" value="testMaakKorting" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="bootTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -121,18 +140,21 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.bootTest" />
+        <item itemvalue="Application.main" />
         <item itemvalue="JUnit.KortinglijstTest" />
         <item itemvalue="JUnit.bootTest.testPrintBoot" />
         <item itemvalue="JUnit.bootTest.Botenlist" />
-        <item itemvalue="JUnit.KortingTest" />
-        <item itemvalue="JUnit.KortinglijstTest.testMaakKorting" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\gebruiker\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="89848b26-d923-47ee-aa06-046527833f39" name="Changes" comment="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
+      <changelist id="ca4e6061-0a99-40c7-8c26-639cccbc561f" name="Changes" comment="Rayen class botenList toegevoegd, en class Offerte toegevoegd." />
       <created>1678959983434</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -173,5 +195,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
